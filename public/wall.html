@@ -1,0 +1,20 @@
+<div style="background-color: white">
+    <div layout="row" layout-xs="column" layout-sm="column" >
+        <div flex> <img src="images/home_bgr.gif" class="img-responsive cube-img"/> </div>
+        <div layout="column" flex>
+            <div style="height:150px"></div>
+            <div layout="row">
+                <div layout="row" class="hexagon">
+                    <a du-smooth-scroll="view" du-scrollspy><img ui-sref="home.essential" src="images/ess_home.gif" class="img-responsive"> </a>
+                    <a du-smooth-scroll="view" du-scrollspy><img ui-sref="home.commercial" src="images/com_home.gif" class="img-responsive"></a>
+                </div>
+            </div>
+            <div style="height:150px"></div>
+            
+        </div>
+    </div>
+</div>
+
+<div layout="row" layout-padding layout-margin layout-fill style="min-height: 224px;">
+    <div id="view" ui-view></div>
+</div>
