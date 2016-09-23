@@ -1,4 +1,4 @@
-var esscom = angular.module('esscom',['ngMaterial','ui.router','duScroll']);
+var esscom = angular.module('esscom',['ngMaterial','ui.router','duScroll','ui.bootstrap']);
 
 esscom.config(['$stateProvider', '$urlRouterProvider',function($stateProvider, $urlRouterProvider){
     $stateProvider
@@ -6,15 +6,15 @@ esscom.config(['$stateProvider', '$urlRouterProvider',function($stateProvider, $
         url:'/',
         templateUrl:'wall.html'
     })
-    .state('home.commercial',{
-        url:'commercial',
+    .state('commercial',{
+        url:'/commercial',
         templateUrl:'commercial.html'
     })
-    .state('home.essential',{
-        url:'essential',
+    .state('essential',{
+        url:'/essential',
         templateUrl:'essential.html'
     })
-    .state('home.essential.services',{
+    .state('essential.services',{
         url:'/services',
         templateUrl:'services.html'
     });
@@ -24,3 +24,13 @@ esscom.config(['$stateProvider', '$urlRouterProvider',function($stateProvider, $
 }]);
 
 esscom.value('duScrollOffset', 50);
+
+esscom.controller('AccordionController',function($scope){
+    $scope.oneAtATime = true;
+    $scope.open = [false,false,false,false,false,false];
+    
+    $scope.toggle = function(i){
+        $scope.open[i] = !$scope.open[i];
+    }
+    console.log($scope.open);
+});

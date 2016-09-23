@@ -1,0 +1,17 @@
+.ess-cube img {
+    width: 100%;
+    height: 100%;
+}
+
+.ess-leg {
+    background-color: rgb(250, 230, 226);
+}
+
+.ess-leg img {
+    float: right;
+}
+
+.scrollable-div {
+    background: transparent;
+    position: absolute;
+}

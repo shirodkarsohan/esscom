@@ -1,34 +1,16 @@
 body {
     padding-top: 51px;
 }
-
-.essential-home-img {
-    float: right;
+.logo{
+    height: 50px;
 }
-.essentials{
-    min-height: 75vh;
-    height: auto;
-    font-size: 17px;
-}
-.panel-heading{
-    position: relative;
-    
-}
-.panel-body{
-    position: relative;
-    min-height: inherit;
-}
-/*.ess-com-view{
-    background-color: aliceblue;
-}
-.service-view{
-    background-color: lightgoldenrodyellow;
-}*/
 .cube-img{
     width: 100%;
+    height: 100%;
 }
 .hexagon{
-    margin: 0 auto; 
+    margin-left: 0; 
+    height:80px;
 }
 .anchor{
     color: black;
@@ -42,6 +24,7 @@ body {
 .anchor:visited{
     color: black;
 }
+
 .dropdown-submenu {
     position:relative;
 }
@@ -79,4 +62,20 @@ body {
     -webkit-border-radius:6px 0 6px 6px;
     -moz-border-radius:6px 0 6px 6px;
     border-radius:6px 0 6px 6px;
+}
+.sticky-div {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+}
+.scrollable-div {
+    background: transparent;
+    position: absolute;
+    padding-top: 50px;
+}
+h1,p,h2,h3,h4,h5,h6{
+    color: rgb(70,10,30);
+}
+.data{
+    text-align: justify;
 }

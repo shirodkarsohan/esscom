@@ -10,10 +10,75 @@
     <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="bower_components/angular-material/angular-material.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet"> </head>
-
+    <link href="stylesheets/style.css" rel="stylesheet"> </head>
+    
+    <style>
+        .sticky-div{
+            position: fixed;
+            width:100%;
+            
+        }
+        .ess-cube img{
+            width: 100%;
+            height: 100%;
+        }
+        
+        .ess-leg{
+            background-color: rgb(250,230,226);
+        }
+        .ess-leg img{
+            float: right;
+        }
+        
+        .scrollable-div{
+            
+            background: transparent;
+            position: absolute;
+            
+        }
+    </style>
 <body ng-app="esscom" ng-cloak>
     
+    
+    <div layout="row" class="sticky-div">
+        <div class="ess-cube" flex>
+            <img src="images/ess_inside_bgr.gif" class="img-responsive">
+        </div>
+        
+        <div class="ess-leg" flex>
+            <img src="images/ess_bgr.gif" class="img-responsive">
+        </div>
+        
+        
+    </div>
+    
+    <div class="scrollable-div" layout="row">
+        <h1>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec non turpis nulla, sed commodo felis. Nunc quis nulla elit, quis congue lacus. Cras quis augue at massa eleifend viverra. Sed in turpis at libero hendrerit mollis. Nulla vehicula orci eget magna volutpat nec vehicula enim pellentesque. Nullam et turpis urna. Praesent non neque ut libero porta convallis vel et magna. Fusce ullamcorper hendrerit arcu, non mollis metus facilisis et. Aliquam erat volutpat. Phasellus mollis eleifend risus, vel facilisis ligula aliquet et.
+
+            Donec at turpis at justo consequat pellentesque. Vivamus euismod malesuada nulla, sed tristique neque molestie eget. Donec non sem neque, et bibendum diam. Mauris eu lacus tortor. Suspendisse viverra massa lobortis ante aliquam mattis. Ut bibendum, quam sed posuere dignissim, nisl lorem eleifend est, ut sodales elit augue id leo. Aliquam dignissim dignissim dolor quis lacinia. Curabitur blandit dignissim tellus, sit amet dignissim ligula mollis in. Fusce vel aliquam turpis. Sed nec urna odio. In sagittis scelerisque erat, quis placerat justo faucibus vitae. Pellentesque vel neque lectus, vel lobortis lectus. Mauris convallis accumsan augue ut malesuada. Maecenas id nisi urna, vel laoreet felis.
+
+            Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vestibulum placerat, velit mattis luctus egestas, orci leo dictum purus, in vulputate diam velit non elit. Integer eget turpis felis. Nam tincidunt erat lorem. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Etiam non tellus orci. Nam malesuada tortor sed nulla pretium auctor. Aliquam erat volutpat. Sed ornare, felis vel pellentesque vulputate, odio velit pellentesque enim, eu pharetra dui orci nec augue. Curabitur a dui felis, non aliquet mauris.
+
+            Vestibulum odio ante, viverra non blandit sed, condimentum id dui. Cras ullamcorper dapibus feugiat. Aliquam vestibulum turpis sit amet lacus elementum aliquet faucibus lacus suscipit. Aliquam et euismod turpis. Proin in purus id neque aliquet scelerisque. Nam varius, purus vitae scelerisque suscipit, turpis eros feugiat diam, quis rhoncus magna tellus vel felis. Sed nisi orci, commodo eu tristique euismod, cursus sit amet odio. Nulla facilisi. Sed lacinia libero eget nisi aliquet aliquam. Maecenas urna lectus, ultrices a iaculis ut, vestibulum eget quam. Curabitur a ante dolor. In augue enim, pretium ut condimentum quis, tincidunt et risus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. In eleifend tellus eget tortor lacinia nec sollicitudin metus aliquet.
+
+            Pellentesque tempus ante quis erat mollis tristique. Nam consectetur volutpat aliquet. Integer purus ligula, consequat ut ornare id, porta sed magna. Sed fringilla venenatis dolor, eu euismod odio blandit nec. Nullam nec justo nulla, quis sagittis sapien. Sed pharetra lectus eu ante posuere mollis. Pellentesque posuere sem non lectus aliquam volutpat. Nulla malesuada auctor lacinia. Maecenas ac massa arcu, sagittis laoreet quam. Fusce egestas eros turpis.
+
+            Vivamus varius gravida ultrices. Aliquam pulvinar ultrices justo. Morbi pellentesque malesuada auctor. Etiam accumsan orci ut nunc tempus in aliquam risus dapibus. Maecenas aliquet magna ut nibh commodo sit amet placerat lorem lobortis. In ac orci non velit commodo imperdiet. Vestibulum sed sollicitudin ligula. Sed vel convallis lectus. Donec malesuada scelerisque est nec feugiat. Quisque aliquam auctor erat. Pellentesque at nulla odio.
+
+            In porttitor molestie nulla at sodales. Aenean gravida ultrices gravida. In in magna mi. Aenean eu ante ipsum. Phasellus eleifend ipsum vel magna egestas vel fermentum quam volutpat. Cras lorem erat, luctus et porta ut, bibendum quis nulla. Proin id sem at nunc pellentesque lacinia. Suspendisse a tellus eros, ut imperdiet quam. Vestibulum sed mauris id purus elementum congue. Nullam vel eros elit, rutrum vulputate tellus. Nunc vitae turpis ante, non congue nibh. Fusce a turpis felis, vitae varius magna.
+
+            Pellentesque risus enim, ornare a venenatis at, mollis vitae nulla. Mauris vitae mi sed velit auctor sollicitudin. Duis hendrerit fermentum dolor at malesuada. In hac habitasse platea dictumst. Integer vitae nisl vel nunc molestie laoreet. Sed semper dignissim dolor eu commodo. Vivamus feugiat lorem ac diam molestie nec pellentesque ante accumsan. Vestibulum interdum rhoncus eros, quis hendrerit risus mattis nec. Vivamus eget nisl eget turpis commodo ultricies. Fusce in lacus ac orci sagittis feugiat. Nunc dapibus venenatis nisi. Sed in justo tellus, ac dictum eros. Aenean pharetra lacus sit amet lorem rhoncus a rutrum libero fringilla. Proin tempus augue sed mauris cursus congue.
+
+            Sed massa orci, tincidunt sit amet accumsan a, condimentum sed diam. Mauris ultricies commodo hendrerit. Nulla id ipsum non nunc imperdiet ullamcorper. Morbi dui ante, ultrices ullamcorper hendrerit a, rutrum at elit. Mauris aliquam porttitor diam, a porttitor lectus porttitor vel. Donec in nunc non lorem congue tincidunt non non nulla. Maecenas velit metus, luctus eu molestie ac, sodales elementum tellus. Nullam a enim sem, vel lobortis enim. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Etiam rhoncus tempor dolor eget auctor. Duis sapien erat, pretium tincidunt bibendum id, commodo vel erat. Duis sit amet nisl id enim facilisis rhoncus mollis ut massa. Fusce suscipit ipsum quis massa commodo dapibus. Sed adipiscing rutrum elit, sed hendrerit odio tristique eu.
+
+            In hac habitasse platea dictumst. Donec porta, enim quis tincidunt bibendum, dui justo adipiscing libero, eget malesuada dui erat quis tortor. Praesent eu dolor augue, eget fringilla magna. Pellentesque hendrerit elementum arcu at consequat. Donec in enim augue, quis volutpat diam. Etiam a suscipit lacus. Sed non dolor metus, id malesuada sapien. Aenean vitae ullamcorper leo. Ut sem nulla, vehicula et viverra in, tincidunt vel elit. Maecenas sit amet metus ipsum. Ut sed neque purus, at sollicitudin mi. Nunc euismod tempus lobortis.
+
+            Aliquam erat volutpat. Nulla semper varius libero, ut dictum libero accumsan viverra. Donec ipsum elit, facilisis id facilisis vitae, molestie et magna. Mauris vel tortor tortor. Donec quam eros, pulvinar ac aliquam non, aliquet eget eros. Phasellus pharetra turpis eu nisi mattis sed sodales quam pulvinar. Curabitur ut turpis erat, vel volutpat diam. Aenean ultrices commodo dui ac rutrum. Nulla nulla ipsum, varius vitae ultrices a, faucibus ac mi. Aliquam erat volutpat. Phasellus tincidunt tempor risus sed porttitor.
+
+            Aliquam laoreet, sapien at varius commodo, dui tellus iaculis erat, ut imperdiet turpis lacus eget augue. Nunc feugiat posuere neque et bibendum. Praesent ullamcorper, felis at bibendum commodo, lacus neque commodo magna, in vestibulum augue elit id nunc. Duis non mollis felis. Aliquam scelerisque sagittis quam non sodales. Integer lectus dolor, venenatis ac ultricies consequat, iaculis vitae massa. Duis sodales auctor magna ut cursus. Duis cursus dapibus tellus id convallis. Etiam tristique faucibus ligula, in suscipit felis hendrerit a. Donec tristique, massa eu rhoncus luctus, est sem bibendum massa, id aliquam enim sem sit amet sem. Nunc imperdiet leo a justo ultrices sodales. Ut aliquam faucibus odio, malesuada egestas turpis auctor ac.
+        </h1>
+    </div>
     <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
     <script type="text/javascript" src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
@@ -23,8 +88,8 @@
     <script type="text/javascript" src="bower_components/angular-material/angular-material.min.js"></script>
     <script type="text/javascript" src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
     <script type="text/javascript" src="bower_components/angular-scroll/angular-scroll.min.js"></script>
-    <script type="text/javascript" src="bower_components/ui-bootstrap-tpls-2.1.3.min.js"></script>
-    <script type="text/javascript" src="app.js"></script>
+    <!--<script type="text/javascript" src="bower_components/ui-bootstrap-tpls-2.1.3.min.js"></script>-->
+    <script type="text/javascript" src="javascripts/app.js"></script>
 </body>
 
 </html>
