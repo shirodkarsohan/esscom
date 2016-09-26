@@ -3,11 +3,12 @@
         <img src="images/home_bgr.gif" class="cube-img"/> 
     </div>
     <div layout="column" flex-xs="100" flex-sm="100" flex-gt-sm="50" >
-        <div style="height:90px"></div>
-
-        <div layout="row" class="hexagon" layout-align-xs="center" layout-align-sm="center">
-            <a du-smooth-scroll="view" du-scrollspy><img ui-sref="essential" src="images/ess_home.gif" class="img-responsive"> </a>
-            <a du-smooth-scroll="view" du-scrollspy><img ui-sref="commercial" src="images/com_home.gif" class="img-responsive"></a>
+        <div style="height:90px" hide-xs hide-sm></div>
+        <div layout-margin>
+            <div layout="row" class="hexagon" layout-align-xs="center" layout-align-sm="center">
+                <a class="show-hand"><img ui-sref="essential.home" src="images/ess_home.gif" class="img-responsive"> </a>
+                <a class="show-hand"><img ui-sref="commercial.home" src="images/com_home.gif" class="img-responsive"></a>
+            </div>
         </div>
     </div>
 </div>

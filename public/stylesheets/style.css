@@ -79,3 +79,22 @@ h1,p,h2,h3,h4,h5,h6{
 .data{
     text-align: justify;
 }
+.panel-default{
+    background: transparent;
+    text-align: center !important;
+}
+.panel-default p{
+    text-align: justify !important;
+}
+.transparent-panel{
+    background: transparent !important;
+    outline: none;
+    text-align: left !important;
+}
+.transparent-panel:hover{
+    color: cadetblue;
+    
+}
+.show-hand{
+     cursor: pointer; cursor: hand;
+}

@@ -15,55 +15,32 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav nav-list" style="padding-left:10%">
                 <li class="dropdown">
-                    <a ui-sref="essential" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                    <a  class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                         Essentials 
                         <span class="caret"></span>
                         
                         <ul class="dropdown-menu">
-                            <li><a href="#">About Us</a></li>
-                            <li><a href="#">Work Process</a></li>
-                            <li class="dropdown dropdown-submenu">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Services</a>
-                                <ul class="dropdown-menu">
-                                    
-                                    <li><a ui-sref="home.services" du-smooth-scroll="marketing" du-scrollspy>Marketing</a></li>
-                                    <li><a ui-sref="home.services">Branding</a></li>
-                                    <li><a ui-sref="home.services">Web Design</a></li>
-                                    <li><a ui-sref="home.services">Package Design</a></li>
-                                    <li><a ui-sref="home.services">Advertising</a> </li>
-                                    <li><a ui-sref="home.services">Display Graphics</a> </li>
-                                    <li><a ui-sref="home.services">Social Media</a></li>
-                                    
-                                </ul>
-                            
-                            </li>
+                            <li><a ui-sref="essential.home">Advertising/ Marketing</a></li>
+                            <li><a ui-sref="essential.about">About Us</a></li>
+                            <li><a ui-sref="essential.work">Work Process</a></li>
+                            <li><a ui-sref="essential.services">Services</a></li>
                         </ul>
                     </a>
                 </li>
                 
                 <li class="dropdown">
-                    <a ui-sref="commercial" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                    <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                         Commercials 
                         <span class="caret"></span>
                         
                         <ul class="dropdown-menu">
-                            <li><a href="#">About Us</a></li>
-                            <li class="dropdown dropdown-submenu">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Work Process</a>
-                                <ul class="dropdown-menu">
-                                    
-                                    <li><a href="#">First Thing First</a></li>
-                                    <li><a href="#">Office Expenses</a></li>
-                                    <li><a href="#">Smart Enterpreneur</a></li>
-                                    <li><a href="#">Finance</a></li>
-                                    <li><a href="#">Employees</a> </li>
-                                </ul>
-                            
-                            </li>
+                            <li><a ui-sref="commercial.home">Commercial</a></li>
+                            <li><a ui-sref="commercial.about">About Us</a></li>
+                            <li><a ui-sref="commercial.work">Work Process</a></li>
                         </ul>
                     </a>
                 </li>
-                <li><a href="#">Contact Us</a></li>
+                <li><a ui-sref="contact">Contact Us</a></li>
                 <li><a href="#">Downloads</a></li>
             </ul>
         </div>
