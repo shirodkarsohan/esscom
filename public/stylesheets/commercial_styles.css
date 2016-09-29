@@ -4,3 +4,11 @@
 .com-chair img {
     float: right;
 }
+.commercial-panel{
+    background: transparent !important;
+    outline: none;
+    text-align: left !important;
+}
+.commercial-panel:hover{
+    color: forestgreen;
+}

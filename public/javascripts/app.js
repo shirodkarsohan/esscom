@@ -1,6 +1,7 @@
-var esscom = angular.module('esscom',['ngMaterial','ui.router','duScroll','ui.bootstrap']);
+var esscom = angular.module('esscom',['ngMaterial','ui.router','duScroll','ui.bootstrap','lr.upload']);
 
 esscom.config(['$stateProvider', '$urlRouterProvider',function($stateProvider, $urlRouterProvider){
+    
     $stateProvider
     .state('home',{
         url:'/',
@@ -75,4 +76,29 @@ esscom.controller('AccordionController',function($scope){
     }
     
     
+});
+
+esscom.controller('QueryController',function($scope,$http){
+    $scope.sendQuery = function(){
+        var fd = new FormData();
+        fd.append('file',$scope.file);
+        var data = {
+            'name' : $scope.name,
+            'phone' : $scope.phone,
+            'email' : $scope.email,
+            'business' : $scope.business,
+            'query' : $scope.query,
+            'file' : fd
+        };
+        console.log("In sendQuery with data...");
+        console.log(data);
+        
+        $http.post('/send',data).success(function(response){
+            console.log(response);
+        });
+        
+        /*$http.get('/send?name='+$scope.name+"&phone="+$scope.phone).success(function(response){
+            console.log(response);
+        })*/
+    }
 });

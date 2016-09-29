@@ -11,7 +11,11 @@
     float: right;
 }
 
-.scrollable-div {
-    background: transparent;
-    position: absolute;
+.essential-panel{
+    background: transparent !important;
+    outline: none;
+    text-align: left !important;
+}
+.essential-panel:hover{
+    color: indianred;
 }
