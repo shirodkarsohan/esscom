@@ -2,15 +2,14 @@
   "name": "esscom",
   "version": "0.0.0",
   "private": true,
-  "engines": {
-    "node": "4.3.1",
-	"npm" : "3.7.3"
+  "engines" : {
+	"node": "4.3.1",
+	"npm": "3.7.3"
   },
   "scripts": {
-    "start": "node app.js",
-	"postinstall": "bower cache clean && node ./public/bower install"
+    "start": "node ./bin/www",
+	"postinstall": "node ./node_modules/bower/bin/bower install"
   },
-  "cacheDirectories": ["node_modules", "bower_components"],
   "dependencies": {
     "body-parser": "~1.15.1",
     "bower": "^1.7.9",
