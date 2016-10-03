@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-	"postinstall": "bower cache clean && node ./public/bower install"
+	"postinstall": "bower cache clean && ./public/bower install"
   },
   "dependencies": {
     "body-parser": "~1.15.1",
