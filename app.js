@@ -1,5 +1,6 @@
 var express = require('express');
 var nodemailer = require("nodemailer");
+var multer  = require('multer')
 var smtpTransport = require("nodemailer-smtp-transport")
 var path = require('path');
 var favicon = require('serve-favicon');
@@ -11,51 +12,6 @@ var routes = require('./routes/index');
 var users = require('./routes/users');
 
 var app = express();
-
-/*
-    Here we are configuring our SMTP Server details.
-    STMP is mail server which is responsible for sending and recieving email.
-*/
-var transporter = nodemailer.createTransport(smtpTransport({
-    host : "smtp.gmail.com",
-    secureConnection : false,
-    port: 587,
-    auth : {
-        user : "sohan.gec@gmail.com",
-        pass : "gmail21051995."
-    }
-}));
-/* var transporter = nodemailer.createTransport("SMTP",{
-    service: "Gmail",
-    auth: {
-        user: "sohan.gec",
-        pass: "gmail21051995."
-    }
-}); */
-app.post('/send',function(req,res){
-	console.log("On server received query to send email");
-    var mailOptions={
-		from: 'sohan.gec@gmail.com',
-        to : 'sohan.gec@gmail.com',
-        subject : 'EssCom Query',
-        text : "Name: "+req.body.name+"\nContact:"+req.body.phone,
-		attachments: [{
-			filename:req.body.file
-		}]
-    }
-	
-    console.log(mailOptions);
-    transporter.sendMail(mailOptions, function(error, response){
-        if(error){
-            console.log(error);
-            res.send("error");
-        }
-        else{
-            console.log("Message sent: " + response.message);
-            res.send("sent");
-         }
-    });
-});
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
@@ -71,8 +27,67 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', routes);
 app.use('/users', users);
 
-app.get('/send',function(req,res){
+var upload = multer({ dest: 'uploads/' });
+/*
+    Here we are configuring our SMTP Server details.
+    STMP is mail server which is responsible for sending and recieving email.
+*/
+var transporter = nodemailer.createTransport(smtpTransport({
+    host : "smtp.gmail.com",
+    secureConnection : false,
+    port: 587,
+    auth : {
+        user : "sohan.gec@gmail.com",
+        pass : "gmail21051995."
+    }
+}));
+var file;
 
+app.post('/upload',upload.single('file'),function(req,res){
+	console.log("Uploading file.. in /post");
+	console.log(req.file);
+	
+	file = req.file;
+	res.send("Success");
+});
+app.post('/send',function(req,res){
+	console.log("On server received query to send email");
+    console.log("Request body is...");
+	console.log(req.body);
+	
+	if( file == null ){
+		var mailOptions={
+			from: 'sohan.gec@gmail.com',
+			to : 'sohan.gec@gmail.com',
+			subject : 'EssCom Query',
+			text : "Name: "+req.body.name+"\nContact: "+req.body.phone+"\nEmail: "+req.body.email+"\nBusiness: "+req.body.business+"\n\n\n\nQuery:\n\n"+req.body.query
+		}
+	}
+	else{
+		var mailOptions={
+			from: 'sohan.gec@gmail.com',
+			to : 'sohan.gec@gmail.com',
+			subject : 'EssCom Query',
+			text : "Name: "+req.body.name+"\nContact: "+req.body.phone+"\nEmail: "+req.body.email+"\nBusiness: "+req.body.business+"\n\n\n\nQuery:\n\n"+req.body.query,
+			attachments: [
+			{   // utf-8 string as an attachment
+				filename: file.originalname,
+				path: file.path,
+				contentType : file.mimetype
+			}]
+		}
+	}
+    console.log(mailOptions);
+    transporter.sendMail(mailOptions, function(error, response){
+        if(error){
+            console.log(error);
+            res.send("error");
+        }
+        else{
+			file = null;
+            res.send("sent");
+         }
+    }); 
 });
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

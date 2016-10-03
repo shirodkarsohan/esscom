@@ -1,4 +1,6 @@
 node_modules/
 public/bower_components/
 esscom_site
+uploads/**
+upload.pdf
 .gitignore

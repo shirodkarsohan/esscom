@@ -69,3 +69,11 @@ h1,p,h2,h3,h4,h5,h6{
     border: solid;
     border-color: gainsboro;
 }
+#toaster {
+  position: fixed;
+  top: 56px;
+  height: 48px;
+  left: 0;
+  width: 100%;
+  z-index: 10000;
+}

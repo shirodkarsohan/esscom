@@ -25,68 +25,77 @@
             <p>
                 We're always happy to make new friends or to hear from smart, funny people. So go ahead, reach out and contact us.... we dare you.
             </p>
-            <div class="form" layout-padding name="contact_form">
-                <form ng-controller="QueryController">
-                <md-input-container class="md-icon-float md-block">
-                    <!-- Use floating label instead of placeholder -->
-                    <label>Name</label>
-                    <md-icon class="md-icon-button">
-                        <i class="material-icons">account_circle</i>
-                    </md-icon>
-                    <input ng-model="name" type="text" ng-required="true" name="name">
-                    <div ng-messages="contact_form.name.$error">
-                        <div ng-message="required">This is required.</div>
-                    </div>
-                </md-input-container>
-                <md-input-container class="md-icon-float md-block">
-                    <label>Contact</label>
-                    <md-icon class="md-icon-button">
-                        <i class="material-icons">phone</i>
-                    </md-icon>
-                    <input ng-model="phone" type="text" ng-required="true" name="phone">
-                    <div ng-messages="contact_form.phone.$error">
-                        <div ng-message="required">This is required.</div>
-                    </div>
-                </md-input-container>
-                <md-input-container class="md-block">
-                    <!-- Use floating placeholder instead of label -->
-                    <md-icon class="md-icon-button">
-                        <i class="material-icons">email</i>
-                    </md-icon>
-                    <input ng-model="email" type="email" placeholder="Email (required)" ng-required="true" name="email">
-                    <div ng-messages="contact_form.email.$error">
-                        <div ng-message="required">This is required.</div>
-                    </div>
-                </md-input-container>
-                <md-input-container class="md-icon-float md-block">
-                    <!-- Use floating label instead of placeholder -->
-                    <label>Business Name</label>
-                    <md-icon class="md-icon-button">
-                        <i class="material-icons">business_center</i>
-                    </md-icon>
-                    <input ng-model="business" type="text" ng-required="true" name="business">
-                    <div ng-messages="contact_form.business.$error">
-                        <div ng-message="required">This is required.</div>
-                    </div>
-                </md-input-container>
-                <md-input-container class="md-block">
-                    <label>Click to enter your query</label>
-                    <md-icon class="md-icon-button">
-                        <i class="material-icons">question_answer</i>
-                    </md-icon>
-                    <textarea ng-model="query" md-maxlength="150" rows="5" md-select-on-focus ng-required="true" name="query"></textarea>
-                    <div ng-messages="contact_form.query.$error">
-                        <div ng-message="required">This is required.</div>
-                    </div>
-                </md-input-container>
-                <md-input-container class="md-block">
-                    <i class="material-icons">attachment</i>
-                    <!--<input type="file" id="attachment" ng-model="file" aria-label="attachment">    -->
+            <div class="form" layout-padding>
+                <form ng-controller="QueryController" name="contact_form">
+                    <md-input-container class="md-icon-float md-block">
+                        <label>Name</label>
+                        <md-icon class="md-icon-button">
+                            <i class="material-icons">account_circle</i>
+                        </md-icon>
+                        <input ng-model="name" type="text" ng-required="true" name="name">
+                        <div ng-messages="contact_form.name.$error">
+                            <div ng-message="required">This is required.</div>
+                        </div>
+                    </md-input-container>
+                    <md-input-container class="md-icon-float md-block">
+                        <label>Contact</label>
+                        <md-icon class="md-icon-button">
+                            <i class="material-icons">phone</i>
+                        </md-icon>
+                        <input ng-model="phone" type="tel" ng-required="true" name="phone">
+                        <div ng-messages="contact_form.phone.$error">
+                            <div ng-message="required">This is required.</div>
+                        </div>
+                    </md-input-container>
+                    <md-input-container class="md-block">
+                        
+                        <md-icon class="md-icon-button">
+                            <i class="material-icons">email</i>
+                        </md-icon>
+                        <input ng-model="email" type="email" placeholder="Email (required)" ng-required="true" name="email" ng-pattern="/^.+@.+\..+$/">
+                        <div ng-messages="contact_form.email.$error" role="alert">
+                            <div ng-message-exp="['required','pattern']">
+                                Enter a valid email address
+                            </div>
+                        </div>
+                        
+                    </md-input-container>
+                    <md-input-container class="md-icon-float md-block">
+                        
+                        <label>Business Name</label>
+                        <md-icon class="md-icon-button">
+                            <i class="material-icons">business_center</i>
+                        </md-icon>
+                        <input ng-model="business" type="text" ng-required="true" name="business">
+                        <div ng-messages="contact_form.business.$error">
+                            <div ng-message="required">This is required.</div>
+                        </div>
+                    </md-input-container>
+                    <md-input-container class="md-block">
+                        <label>Click to enter your query</label>
+                        <md-icon class="md-icon-button">
+                            <i class="material-icons">question_answer</i>
+                        </md-icon>
+                        <textarea ng-model="query" md-maxlength="150" rows="5" md-select-on-focus ng-required="true" name="query"></textarea>
+                        <div ng-messages="contact_form.query.$error">
+                            <div ng-message="required">This is required.</div>
+                        </div>
+                    </md-input-container>
+                
+                    <md-input-container class="md-block">
+                        <md-icon class="md-icon-button">
+                            <i class="material-icons">attachment</i>
+                        </md-icon>
+                        <input type="file" onchange="angular.element(this).scope().filesChanged(this)" file-input="files" aria-label="attachment" multiple>
+
+                        <md-button ng-disabled="fileFlag" class="md-raised md-primary" ng-click="upload()">Upload</md-button>
+
+                    </md-input-container>
                     
-                </md-input-container>
-                <!--<button type="submit" class="btn btn-info">Submit</button>-->
-                <md-button class="md-raised md-primary" ng-click="sendQuery()">Submit</md-button>
-            </form>
+                    <md-progress-linear ng-disabled="progressDisable" md-mode="indeterminate"></md-progress-linear>
+                    <div id="toaster"></div>
+                    <md-button class="md-raised md-primary" ng-disabled="contact_form.$invalid" ng-click="showConfirm($event)">Submit</md-button>
+                </form>            
             </div>
         </div>
     </div>
