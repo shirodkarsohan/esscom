@@ -19,6 +19,6 @@
     "serve-favicon": "~2.3.0"
   },
   "devDependencies": {
-	"bower": "^1.5.2"
+	"bower": "^1.7.9"
    }
 }
