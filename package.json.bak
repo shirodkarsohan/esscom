@@ -10,6 +10,7 @@
     "start": "node app.js",
 	"postinstall": "bower cache clean && node ./public/bower install"
   },
+  "cacheDirectories": ["node_modules", "bower_components"],
   "dependencies": {
     "body-parser": "~1.15.1",
     "bower": "^1.7.9",
