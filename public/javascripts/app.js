@@ -198,22 +198,22 @@ esscom.controller('QueryController',function($scope,$mdDialog,$mdToast,QueryServ
     
 });
 
-esscom.controller('HomeController',function($scope){
-    $scope.showPageLoad = false;
+esscom.controller('HomeController',function($rootScope){
+    $rootScope.showPageLoad = false;
     
-    $scope.showSpinner = function(){
-        $scope.showPageLoad = true;
+    $rootScope.showSpinner = function(){
+        $rootScope.showPageLoad = true;
     }
-    $scope.hideSpinner = function(){
-        $scope.showPageLoad = false;
+    $rootScope.hideSpinner = function(){
+        $rootScope.showPageLoad = false;
     }
-    $scope.$on('$viewContentLoaded', function(){
+    $rootScope.$on('$viewContentLoaded', function(){
         console.log("View content loaded");
-        $scope.hideSpinner();
+        $rootScope.hideSpinner();
     });
-    $scope.$on('$stateChangeStart', function(event, toState, toParams, fromState, fromParams) {
+    $rootScope.$on('$stateChangeStart', function(event, toState, toParams, fromState, fromParams) {
         console.log("State change start");
-        $scope.showSpinner();
+        $rootScope.showSpinner();
         
     });
 });
