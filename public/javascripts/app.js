@@ -197,3 +197,23 @@ esscom.controller('QueryController',function($scope,$mdDialog,$mdToast,QueryServ
     };
     
 });
+
+esscom.controller('HomeController',function($scope){
+    $scope.showPageLoad = false;
+    
+    $scope.showSpinner = function(){
+        $scope.showPageLoad = true;
+    }
+    $scope.hideSpinner = function(){
+        $scope.showPageLoad = false;
+    }
+    $scope.$on('$viewContentLoaded', function(){
+        console.log("View content loaded");
+        $scope.hideSpinner();
+    });
+    $scope.$on('$stateChangeStart', function(event, toState, toParams, fromState, fromParams) {
+        console.log("State change start");
+        $scope.showSpinner();
+        
+    });
+});
