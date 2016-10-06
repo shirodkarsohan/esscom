@@ -18,23 +18,52 @@ esscom.config(['$stateProvider', '$urlRouterProvider',function($stateProvider, $
         url:'/essential',
         abstract:true,
         templateUrl:'essential_templates/essential.html',
-        controller: 'EssentialController'
+        controller: 'EssentialController',
+        resolve:{
+            leftPanelImage : function(){
+                return "ess_bgr";
+            }
+        }
     })
     .state('essential.home',{
-        url:'/home'
-        ,templateUrl:'essential_templates/essential.home.html'
+        url:'/home',
+        templateUrl:'essential_templates/essential.home.html',
+        controller:'EssHomeController',
+        resolve:{
+            leftPanelImage : function(){
+                return "essential.home";
+            }
+        }
     })
     .state('essential.services',{
         url:'/services',
-        templateUrl:'essential_templates/essential.services.html'
+        templateUrl:'essential_templates/essential.services.html',
+        controller:'EssServicesController',
+        resolve:{
+            leftPanelImage : function(){
+                return "essential.services";
+            }
+        }
     })
     .state('essential.about',{
         url:'/about',
-        templateUrl:'essential_templates/essential.about.html'
+        templateUrl:'essential_templates/essential.about.html',
+        controller:'EssAboutController',
+        resolve:{
+            leftPanelImage : function(){
+                return "essential.about";
+            }
+        }
     })
     .state('essential.work',{
         url:'/work',
-        templateUrl:'essential_templates/essential.work.html'
+        templateUrl:'essential_templates/essential.work.html',
+        controller:'EssWorkController',
+        resolve:{
+            leftPanelImage : function(){
+                return "essential.work";
+            }
+        }
     })
     .state('commercial.home',{
         url:'/home',
@@ -67,13 +96,13 @@ esscom.directive('resize',['$window','$state',function($window,$state){
             angular.element($window).bind('resize', function() {
                 //console.log("Window resize");
                 if( $window.innerWidth <= 960){
-                    console.log("Returning ess background");
+                    //console.log("Returning ess background");
                     if( $state.name == 'essential')
                         angular.element("#view").addClass('essbackground');
                     else if( $state.name == 'commercial')
                         angular.element("#view").addClass('combackground');
                 }else{
-                    console.log("removing ess background");
+                    //console.log("removing ess background");
                     if( $state.name == 'essential')
                         angular.element("#view").removeClass('essbackground');
                     else if( $state.name == 'commercial')
@@ -243,14 +272,25 @@ esscom.controller('HomeController',function($rootScope){
     });
 });
 
-esscom.controller('EssentialController',['$window','$scope',function($window,$scope){
+esscom.controller('EssentialController',['$window','$scope','$state','leftPanelImage',function($window,$scope,$state,rightPanelImage){
+    
+    console.log("In esential controller");
     $scope.resolveBackColor = function(){
-        console.log("Resolving back color");
-        if( $window.innerWidth <= 960){
-            console.log("Width < 960px");
+        //console.log("Resolving back color");
+        if( $window.innerWidth <= 1280){
+            //console.log("Width < 1280px");
             return 'essbackground';
         }
     }
+    $scope.rightPanelImage = rightPanelImage+".gif";
+    console.log($scope.rightPanelImage);
+    $scope.$on('$stateChangeSuccess',function(event, toState, toParams, fromState, fromParams) {
+        $state.current = toState;
+        console.log("State change success");
+        $scope.leftPanelImage = toState.name+".gif";
+        console.log($scope.leftPanelImage);
+    });
+
 }]);
 esscom.controller('CommercialController',['$window','$scope',function($window,$scope){
     $scope.resolveBackColor = function(){
@@ -260,4 +300,25 @@ esscom.controller('CommercialController',['$window','$scope',function($window,$s
             return 'combackground';
         }
     }
+}]);
+esscom.controller('EssHomeController',['leftPanelImage','$scope',function(leftPanelImage,$scope){
+    console.log("EssHomeController");
+    $scope.leftPanelImage = leftPanelImage+".gif";
+    console.log($scope.leftPanelImage);
+    
+}]);
+esscom.controller('EssAboutController',['leftPanelImage','$scope',function(leftPanelImage,$scope){
+    console.log("EssAboutController");
+    $scope.leftPanelImage = leftPanelImage+".gif";
+    console.log($scope.leftPanelImage);
+}]);
+esscom.controller('EssServicesController',['leftPanelImage','$scope',function(leftPanelImage,$scope){
+    console.log("EssServicesController");
+    $scope.leftPanelImage = leftPanelImage+".gif";
+    console.log($scope.leftPanelImage);
+}]);
+esscom.controller('EssWorkController',['leftPanelImage','$scope',function(leftPanelImage,$scope){
+    console.log("EssWorkController");
+    $scope.leftPanelImage = leftPanelImage+".gif";
+    console.log($scope.leftPanelImage);
 }]);
