@@ -19,3 +19,6 @@
 .essential-panel:hover{
     color: indianred;
 }
+.essbackground{
+    background-color: rgb(250, 230, 226) !important;
+}

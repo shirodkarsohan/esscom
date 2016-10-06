@@ -11,12 +11,14 @@ esscom.config(['$stateProvider', '$urlRouterProvider',function($stateProvider, $
     .state('commercial',{
         url:'/commercial',
         abstract:true,
-        templateUrl:'commercial_templates/commercial.html'
+        templateUrl:'commercial_templates/commercial.html',
+        controller: 'CommercialController'
     })
     .state('essential',{
         url:'/essential',
         abstract:true,
-        templateUrl:'essential_templates/essential.html'
+        templateUrl:'essential_templates/essential.html',
+        controller: 'EssentialController'
     })
     .state('essential.home',{
         url:'/home'
@@ -58,7 +60,30 @@ esscom.config(['$stateProvider', '$urlRouterProvider',function($stateProvider, $
     $urlRouterProvider.otherwise('/');
 }]);
 
-esscom.value('duScrollOffset', 50);
+esscom.directive('resize',['$window','$state',function($window,$state){
+    return {
+        link:function($scope){
+            //console.log("Inside resize dir");
+            angular.element($window).bind('resize', function() {
+                //console.log("Window resize");
+                if( $window.innerWidth <= 960){
+                    console.log("Returning ess background");
+                    if( $state.name == 'essential')
+                        angular.element("#view").addClass('essbackground');
+                    else if( $state.name == 'commercial')
+                        angular.element("#view").addClass('combackground');
+                }else{
+                    console.log("removing ess background");
+                    if( $state.name == 'essential')
+                        angular.element("#view").removeClass('essbackground');
+                    else if( $state.name == 'commercial')
+                        angular.element("#view").removeClass('combackground');
+                }
+                $scope.$apply();
+            })
+        }
+    };
+}]);
 esscom.directive('fileInput',['$parse',function($parse){
     return{
         restrict: 'A',
@@ -208,12 +233,31 @@ esscom.controller('HomeController',function($rootScope){
         $rootScope.showPageLoad = false;
     }
     $rootScope.$on('$viewContentLoaded', function(){
-        console.log("View content loaded");
+        //console.log("View content loaded");
         $rootScope.hideSpinner();
     });
     $rootScope.$on('$stateChangeStart', function(event, toState, toParams, fromState, fromParams) {
-        console.log("State change start");
+        //console.log("State change start");
         $rootScope.showSpinner();
         
     });
 });
+
+esscom.controller('EssentialController',['$window','$scope',function($window,$scope){
+    $scope.resolveBackColor = function(){
+        console.log("Resolving back color");
+        if( $window.innerWidth <= 960){
+            console.log("Width < 960px");
+            return 'essbackground';
+        }
+    }
+}]);
+esscom.controller('CommercialController',['$window','$scope',function($window,$scope){
+    $scope.resolveBackColor = function(){
+        //console.log("Resolving back color");
+        if( $window.innerWidth <= 960){
+            //console.log("Width < 960px");
+            return 'combackground';
+        }
+    }
+}]);
