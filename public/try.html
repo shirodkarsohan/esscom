@@ -13,14 +13,58 @@
     <link href="stylesheets/style.css" rel="stylesheet"> 
     <link href="stylesheets/essential_styles.css" rel="stylesheet">
     <link href="stylesheets/commercial_styles.css" rel="stylesheet">
+    <style>
+
+        html, body {
+          height: 100%;
+        }
+
+        #wrap {
+          min-height: 100%;
+        }
+
+        #main {
+          overflow:auto;
+          padding-bottom:150px; /* this needs to be bigger than footer height*/
+        }
+
+        .footer {
+          position: relative;
+          height: 50px;
+          clear:both;
+          
+        } 
+    </style>
 </head>
 
 <body ng-app="esscom" ng-cloak>
     
     
-    <div resize id="view">
-        <h1>Resize this</h1>
+    <div id="wrap">
+        <div id="main" class="container clear-top">
+            <h1>
+                A CSS Sticky Footer that just works
+
+                We've all tried to use a CSS Sticky Footer one time or another, but they never seem to come out right, do they? Well, the days of a hard to understand CSS Sticky Footer are thankfully over. With just a few simple CSS classes with minimal extra HTML markup, I've fashioned a CSS Sticky Footer that even beginners can get a handle on. It's been tested in IE 5 and up, Chrome, Firefox, Safari and Opera.
+                Usage of the CSS Sticky Footer
+
+                "Great! This is exactly what I'm looking for! Can I use it?"
+
+                Absolutely. There are no terms, licenses, fees or requirements. Use it as you will. If you find the kindness to link to me on your site, I'd appreciate it, but it's by no means necessary. Have fun, and don't be afraid to ask me any questions or send me your thoughts.
+            </h1>
+            
+            <h1>
+                
+
+                I am generally familiar with the technique of flushing a footer using css and this following approach.
+
+                But I am having some trouble getting this approach to work for Twitter bootstrap, most likely due to the fact that Twitter bootstrap is responsive in nature. Using Twitter bootstrap I am not able to get the footer to flush to the bottom of the page using the approach described in the above blog post.
+
+            </h1>
+        </div>
     </div>
+    <footer class="footer"></footer>
+    
     <script type="text/javascript" src="../bower_components/jquery/dist/jquery.min.js"></script>
     <script type="text/javascript" src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="../bower_components/angular/angular.min.js"></script>

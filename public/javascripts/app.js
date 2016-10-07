@@ -127,12 +127,12 @@ esscom.directive('fileInput',['$parse',function($parse){
 }]);
 esscom.service('QueryService',['$http',function($http){
     this.sendQuery = function(data,fd,cb){ 
-        console.log("In service....");
-        console.log(data);
+        //console.log("In service....");
+        //console.log(data);
         if( fd == null ){
             $http.post('/send', data)
             .success(function(response){
-                console.log(response);
+                //console.log(response);
                 cb(response);
                 return;
             });
@@ -143,10 +143,10 @@ esscom.service('QueryService',['$http',function($http){
                 headers:{'Content-Type':undefined}
             })
             .success(function(response){
-                console.log(response);
+                //console.log(response);
                 $http.post('/send', data)
                 .success(function(response){
-                    console.log(response);
+                    //console.log(response);
                     cb(response);
                     return;
                 });
@@ -202,8 +202,8 @@ esscom.controller('QueryController',function($scope,$mdDialog,$mdToast,QueryServ
             'query' : $scope.query
         };
 
-        console.log("In sendQuery with data...");
-        console.log(data);    
+        //console.log("In sendQuery with data...");
+        //console.log(data);    
 
 
         QueryService.sendQuery(data,fd,function(response){
@@ -244,9 +244,9 @@ esscom.controller('QueryController',function($scope,$mdDialog,$mdToast,QueryServ
                     showSimpleToast("Error");
                 }
             });
-            $scope.status = 'You decided to get rid of your debt.';
+            
         }, function() {
-            $scope.status = 'You decided to keep your debt.';
+            /*$scope.status = 'You decided to keep your debt.';*/
         });
     };
     
@@ -274,7 +274,7 @@ esscom.controller('HomeController',function($rootScope){
 
 esscom.controller('EssentialController',['$window','$scope','$state','leftPanelImage',function($window,$scope,$state,rightPanelImage){
     
-    console.log("In esential controller");
+    //console.log("In esential controller");
     $scope.resolveBackColor = function(){
         //console.log("Resolving back color");
         if( $window.innerWidth <= 1280){
@@ -283,12 +283,12 @@ esscom.controller('EssentialController',['$window','$scope','$state','leftPanelI
         }
     }
     $scope.rightPanelImage = rightPanelImage+".gif";
-    console.log($scope.rightPanelImage);
+    //console.log($scope.rightPanelImage);
     $scope.$on('$stateChangeSuccess',function(event, toState, toParams, fromState, fromParams) {
         $state.current = toState;
-        console.log("State change success");
+        //console.log("State change success");
         $scope.leftPanelImage = toState.name+".gif";
-        console.log($scope.leftPanelImage);
+        //console.log($scope.leftPanelImage);
     });
 
 }]);
@@ -302,23 +302,23 @@ esscom.controller('CommercialController',['$window','$scope',function($window,$s
     }
 }]);
 esscom.controller('EssHomeController',['leftPanelImage','$scope',function(leftPanelImage,$scope){
-    console.log("EssHomeController");
+    //console.log("EssHomeController");
     $scope.leftPanelImage = leftPanelImage+".gif";
-    console.log($scope.leftPanelImage);
+    //console.log($scope.leftPanelImage);
     
 }]);
 esscom.controller('EssAboutController',['leftPanelImage','$scope',function(leftPanelImage,$scope){
-    console.log("EssAboutController");
+    ///console.log("EssAboutController");
     $scope.leftPanelImage = leftPanelImage+".gif";
-    console.log($scope.leftPanelImage);
+    //console.log($scope.leftPanelImage);
 }]);
 esscom.controller('EssServicesController',['leftPanelImage','$scope',function(leftPanelImage,$scope){
-    console.log("EssServicesController");
+    //console.log("EssServicesController");
     $scope.leftPanelImage = leftPanelImage+".gif";
-    console.log($scope.leftPanelImage);
+    //console.log($scope.leftPanelImage);
 }]);
 esscom.controller('EssWorkController',['leftPanelImage','$scope',function(leftPanelImage,$scope){
-    console.log("EssWorkController");
+    //console.log("EssWorkController");
     $scope.leftPanelImage = leftPanelImage+".gif";
-    console.log($scope.leftPanelImage);
+    //console.log($scope.leftPanelImage);
 }]);
