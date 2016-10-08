@@ -17,16 +17,15 @@
     
 <body ng-app="esscom" ng-controller="HomeController" ng-cloak>
     
-    <div id="main-wrapper">
-        <div ng-include="'navbar.html'"></div>
+   
+    <div ng-include="'navbar.html'"></div>
 
-        <!--<div ng-show="showPageLoad" id="load">
-            Loading......
-            <md-progress-circular md-mode="indeterminate"></md-progress-circular>
-        </div>-->
-        <div ui-view autoscroll="true"></div>
+    <div ng-show="showPageLoad" id="load">
+        Loading......
+        <md-progress-circular md-mode="indeterminate"></md-progress-circular>
     </div>
-    
+    <div ui-view class="content"></div>
+        <!--<div ng-include="'footer.html'"></div>-->
     
     <script type="text/javascript" src="../bower_components/jquery/dist/jquery.min.js"></script>
     <script type="text/javascript" src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>

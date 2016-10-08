@@ -89,13 +89,32 @@ esscom.config(['$stateProvider', '$urlRouterProvider',function($stateProvider, $
     $urlRouterProvider.otherwise('/');
 }]);
 
+esscom.directive('applyPaddingTop',['$window','$state',function($window,$state){
+    return {
+        link:function($scope){
+            //console.log("Inside resize dir");
+            angular.element($window).bind('resize', function() {
+                console.log("Applying padding");
+                if( $window.innerWidth > 1280){
+                    console.log("padding added");
+                    angular.element("#pad").css("padding-top","50px");
+                }
+                else{
+                    console.log("padding removed");
+                    angular.element("#pad").removeClass("padding-top","0");
+                }
+                $scope.$apply();
+            });
+        }
+    };
+}]);
 esscom.directive('resize',['$window','$state',function($window,$state){
     return {
         link:function($scope){
             //console.log("Inside resize dir");
             angular.element($window).bind('resize', function() {
                 //console.log("Window resize");
-                if( $window.innerWidth <= 960){
+                if( $window.innerWidth <= 1280){
                     //console.log("Returning ess background");
                     if( $state.name == 'essential')
                         angular.element("#view").addClass('essbackground');
@@ -290,13 +309,24 @@ esscom.controller('EssentialController',['$window','$scope','$state','leftPanelI
         $scope.leftPanelImage = toState.name+".gif";
         //console.log($scope.leftPanelImage);
     });
-
+    $scope.addPadding = function(){
+        
+        if( $window.innerWidth > 1280){
+            console.log("padding added");
+            return {"padding-top":"50px"};
+        }
+        else{
+            console.log("padding removed");
+            return {"padding-top":"0px"};
+        }
+    }
+    
 }]);
 esscom.controller('CommercialController',['$window','$scope',function($window,$scope){
     $scope.resolveBackColor = function(){
         //console.log("Resolving back color");
-        if( $window.innerWidth <= 960){
-            //console.log("Width < 960px");
+        if( $window.innerWidth <= 1280){
+            //console.log("Width < 1280px");
             return 'combackground';
         }
     }

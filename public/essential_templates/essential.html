@@ -1,16 +1,19 @@
-<div layout="row" class="sticky-div">        
-    <div class="ess-cube" flex hide-sm hide-xs hide-md>
-            <img ng-src="images/{{leftPanelImage}}" class="img-responsive">
+<div layout="column">
+    <div layout="row" class="sticky-div">        
+        <div class="ess-cube" flex hide-sm hide-xs hide-md>
+                <img ng-src="images/{{leftPanelImage}}" class="img-responsive">
+        </div>
+        <div class="ess-leg" flex hide-sm hide-xs hide-md>
+            <img ng-src="images/{{rightPanelImage}}" class="img-responsive">
+        </div>
     </div>
-    <div class="ess-leg" flex hide-sm hide-xs hide-md>
-        <img ng-src="images/{{rightPanelImage}}" class="img-responsive">
+    <div ng-show="showPageLoad" id="load">
+        Loading......
+        <md-progress-circular md-mode="indeterminate"></md-progress-circular>
     </div>
-</div>
-<div ng-show="showPageLoad" id="load">
-    Loading......
-    <md-progress-circular md-mode="indeterminate"></md-progress-circular>
-</div>
-<div class="scrollable-div" resize ng-class="resolveBackColor()">
-    <div ui-view autoscroll="true" id="view"></div>
-    <div ng-include="'footer.html'"></div>
+    <div class="scrollable-div" resize ng-class="resolveBackColor()">
+        <div ui-view id="view" class="content"></div>
+        <div ng-include="'footer.html'"></div>
+    </div>
+    
 </div>

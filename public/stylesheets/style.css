@@ -3,7 +3,7 @@ html{
 }
 body {
     padding-top: 51px;
-    height: 100%;
+    min-height: 100%;
 }
 .logo{
     height: 50px;
@@ -35,7 +35,8 @@ body {
 }
 .scrollable-div {
     background: transparent;
-    position: absolute;   
+    position: absolute; 
+    min-height: 92%;
 }
 h1,p,h2,h3,h4,h5,h6{
     color: rgb(70,10,30);
@@ -112,28 +113,30 @@ h1,p,h2,h3,h4,h5,h6{
 .page-text{
     padding-top: 50px;
 }
-.img-top-panel{
+/*.img-top-panel{
     padding-top: 50px;
-}
+}*/
 .footer {
     bottom: 0;
-    height: 35px;
-    left: 0;
-    position: relative;
+    height: 30px;
     width: 100%;
     background-color: darkslategray;
+    position: absolute; 
+    overflow: auto;
 }
-.footer .container-fluid p{
+.footer p{
     text-align: center;
     color: azure;
     font-size: 10px;
     margin-top: 0;
 }
-.footer .container-fluid p a{
+.footer p a{
     color: azure;
 }
-#main-wrapper {
-    padding: 0;
-    position: relative;
-    height: 100%;
+.content{
+    min-height: 100%;
+}
+.wall{
+    position:absolute;
+    width:100%;
 }

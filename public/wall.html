@@ -1,23 +1,23 @@
-<div layout-xs="column" layout-sm="column" layout-gt-sm="row">
-    <div flex-xs="100" flex-sm="100" flex-gt-sm="50"> 
-        <img src="images/home_bgr.gif" class="cube-img"/> 
-    </div>
-    <div layout="column" flex-xs="100" flex-sm="100" flex-gt-sm="50" >
-        <div id="top-div" hide-xs hide-sm></div>
-        <div id="middle-div" layout-margin>
-            <div layout="row" class="hexagon" layout-align-xs="center" layout-align-sm="center">
-                <a class="show-hand" style="display:block">
-                    <img ui-sref="essential.home" src="images/ess_home.gif" class="img-responsive"> 
-                </a>
-                <a class="show-hand" style="display:block">
-                    <img ui-sref="commercial.home" src="images/com_home.gif" class="img-responsive">
-                </a>
-            </div>
+<div layout="column" class="wall">
+    <div layout-xs="column" layout-sm="column" layout-gt-sm="row">
+        <div flex-xs="100" flex-sm="100" flex-gt-sm="50"> 
+            <img src="images/home_bgr.gif" class="cube-img"/> 
         </div>
-        <div id="bottom-div" hide-xs></div>
+        <div layout="column" flex-xs="100" flex-sm="100" flex-gt-sm="50" >
+            <div id="top-div" hide-xs hide-sm></div>
+            <div id="middle-div" layout-margin>
+                <div layout="row" class="hexagon" layout-align-xs="center" layout-align-sm="center">
+                    <a class="show-hand" style="display:block">
+                        <img ui-sref="essential.home" src="images/ess_home.gif" class="img-responsive"> 
+                    </a>
+                    <a class="show-hand" style="display:block">
+                        <img ui-sref="commercial.home" src="images/com_home.gif" class="img-responsive">
+                    </a>
+                </div>
+            </div>
+            <div id="bottom-div" hide-xs></div>
+        </div>
     </div>
-    <div hide-gt-sm ng-include="'footer.html'"></div>
+    <div ng-include="'footer.html'"></div>
 </div>
-<div hide-xs hide-sm ng-include="'footer.html'"></div>
-
 
