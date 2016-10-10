@@ -12,7 +12,12 @@ esscom.config(['$stateProvider', '$urlRouterProvider',function($stateProvider, $
         url:'/commercial',
         abstract:true,
         templateUrl:'commercial_templates/commercial.html',
-        controller: 'CommercialController'
+        controller: 'CommercialController',
+        resolve:{
+            rightPanelImage : function(){
+                return "com_bgr";
+            }
+        }
     })
     .state('essential',{
         url:'/essential',
@@ -20,7 +25,7 @@ esscom.config(['$stateProvider', '$urlRouterProvider',function($stateProvider, $
         templateUrl:'essential_templates/essential.html',
         controller: 'EssentialController',
         resolve:{
-            leftPanelImage : function(){
+            rightPanelImage : function(){
                 return "ess_bgr";
             }
         }
@@ -67,22 +72,46 @@ esscom.config(['$stateProvider', '$urlRouterProvider',function($stateProvider, $
     })
     .state('commercial.home',{
         url:'/home',
-        templateUrl:'commercial_templates/commercial.home.html'
+        templateUrl:'commercial_templates/commercial.home.html',
+        resolve:{
+            leftPanelImage : function(){
+                return "commercial.home";
+            }
+        },
+        controller:'ComHomeController'
     })
     .state('commercial.about',{
         url:'/about',
-        templateUrl:'commercial_templates/commercial.about.html'
+        templateUrl:'commercial_templates/commercial.about.html',
+        resolve:{
+            leftPanelImage : function(){
+                return "commercial.about";
+            }
+        },
+        controller:'ComAboutController'
     })
-    .state('commercial.work',{
+    .state('commercial.fund',{
         url:'/work',
-        templateUrl:'commercial_templates/commercial.work.html'
+        templateUrl:'commercial_templates/commercial.work.html',
+        resolve:{
+            leftPanelImage : function(){
+                return "commercial.fund";
+            }
+        },
+        controller:'ComFundController'
     })
     .state('downloads',{
         url:'/downloads'   
     })
     .state('contact',{
         url:'/contact',
-        templateUrl:'contact.html'
+        templateUrl:'contact.html',
+        resolve:{
+            leftPanelImage : function(){
+                return "contact";
+            }
+        },
+        controller: 'ContactController'
     });
     /*$urlRouterProvider.when('', '/home');
     $urlRouterProvider.when('/', '');*/
@@ -271,7 +300,7 @@ esscom.controller('QueryController',function($scope,$mdDialog,$mdToast,QueryServ
     
 });
 
-esscom.controller('HomeController',function($rootScope){
+esscom.controller('HomeController',['$rootScope','$window',function($rootScope,$window){
     $rootScope.showPageLoad = false;
     
     $rootScope.showSpinner = function(){
@@ -289,11 +318,18 @@ esscom.controller('HomeController',function($rootScope){
         $rootScope.showSpinner();
         
     });
-});
+}]);
 
-esscom.controller('EssentialController',['$window','$scope','$state','leftPanelImage',function($window,$scope,$state,rightPanelImage){
+esscom.controller('EssentialController',['$window','$scope','$state','rightPanelImage','$anchorScroll','$location',function($window,$scope,$state,rightPanelImage,$anchorScroll,$location){
     
     //console.log("In esential controller");
+    
+    $location.hash('view');
+
+      // call $anchorScroll()
+    $anchorScroll();
+    
+    
     $scope.resolveBackColor = function(){
         //console.log("Resolving back color");
         if( $window.innerWidth <= 1280){
@@ -304,7 +340,6 @@ esscom.controller('EssentialController',['$window','$scope','$state','leftPanelI
     $scope.rightPanelImage = rightPanelImage+".gif";
     //console.log($scope.rightPanelImage);
     $scope.$on('$stateChangeSuccess',function(event, toState, toParams, fromState, fromParams) {
-        $state.current = toState;
         //console.log("State change success");
         $scope.leftPanelImage = toState.name+".gif";
         //console.log($scope.leftPanelImage);
@@ -322,7 +357,7 @@ esscom.controller('EssentialController',['$window','$scope','$state','leftPanelI
     }
     
 }]);
-esscom.controller('CommercialController',['$window','$scope',function($window,$scope){
+esscom.controller('CommercialController',['$window','$scope','rightPanelImage',function($window,$scope,rightPanelImage){
     $scope.resolveBackColor = function(){
         //console.log("Resolving back color");
         if( $window.innerWidth <= 1280){
@@ -330,25 +365,98 @@ esscom.controller('CommercialController',['$window','$scope',function($window,$s
             return 'combackground';
         }
     }
+    
+    $scope.rightPanelImage = rightPanelImage+".gif";
+    //console.log($scope.rightPanelImage);
+    $scope.$on('$stateChangeSuccess',function(event, toState, toParams, fromState, fromParams) {
+        //console.log("State change success");
+        $scope.leftPanelImage = toState.name+".gif";
+        //console.log($scope.leftPanelImage);
+    });
+    
 }]);
+
 esscom.controller('EssHomeController',['leftPanelImage','$scope',function(leftPanelImage,$scope){
-    //console.log("EssHomeController");
+    //console.log("EssHomeController");    
     $scope.leftPanelImage = leftPanelImage+".gif";
-    //console.log($scope.leftPanelImage);
+    console.log($scope.leftPanelImage+" loaded");
     
 }]);
 esscom.controller('EssAboutController',['leftPanelImage','$scope',function(leftPanelImage,$scope){
     ///console.log("EssAboutController");
+    /*console.log("Scroll");
+    $window.scrollTo(0, 500);*/
+    
     $scope.leftPanelImage = leftPanelImage+".gif";
-    //console.log($scope.leftPanelImage);
+    console.log($scope.leftPanelImage+" loaded");
 }]);
 esscom.controller('EssServicesController',['leftPanelImage','$scope',function(leftPanelImage,$scope){
     //console.log("EssServicesController");
+    /*console.log("Scroll");
+    $window.scrollTo(0, 500);
+    */
     $scope.leftPanelImage = leftPanelImage+".gif";
-    //console.log($scope.leftPanelImage);
+    console.log($scope.leftPanelImage+" loaded");
 }]);
 esscom.controller('EssWorkController',['leftPanelImage','$scope',function(leftPanelImage,$scope){
     //console.log("EssWorkController");
+    /*console.log("Scroll");
+    $window.scrollTo(0, 500);*/
+    
     $scope.leftPanelImage = leftPanelImage+".gif";
-    //console.log($scope.leftPanelImage);
+    console.log($scope.leftPanelImage+" loaded");
+}]);
+
+esscom.controller('ComHomeController',['leftPanelImage','$scope',function(leftPanelImage,$scope){
+    //console.log("ComHomeController");
+    /*console.log("Scroll");
+    $window.scrollTo(0, 500);*/
+    $scope.leftPanelImage = leftPanelImage+".gif";
+    console.log($scope.leftPanelImage+" loaded");
+    
+}]);
+esscom.controller('ComAboutController',['leftPanelImage','$scope',function(leftPanelImage,$scope){
+    ///console.log("AboutController");
+    /*console.log("Scroll");
+    $window.scrollTo(0, 500);*/
+    
+    $scope.leftPanelImage = leftPanelImage+".gif";
+    console.log($scope.leftPanelImage+" loaded");
+}]);
+esscom.controller('ComFundController',['leftPanelImage','$scope',function(leftPanelImage,$scope){
+    //console.log("ServicesController");
+    /*console.log("Scroll");
+    $window.scrollTo(0, 500);*/
+    $scope.leftPanelImage = leftPanelImage+".gif";
+    console.log($scope.leftPanelImage+" loaded");
+}]);
+
+esscom.controller('ContactController',['leftPanelImage','$scope','$window',function(leftPanelImage,$scope,$window){
+    ///console.log("EssAboutController");
+    /*console.log("Scroll");
+    $window.scrollTo(0, 500);*/
+    
+    $scope.leftPanelImage = leftPanelImage+".gif";
+    console.log($scope.leftPanelImage+" loaded");
+    
+    $scope.resolveBackColor = function(){
+        //console.log("Resolving back color");
+        if( $window.innerWidth <= 1280){
+            //console.log("Width < 1280px");
+            return 'contact-background';
+        }
+    }
+    
+    
+}]);
+
+esscom.controller('NavbarController', ['$scope','$window',function($scope,$window){
+    $scope.isNavCollapsed = true;
+    $scope.resolveCollapse = function(){
+        if( $window.innerWidth <= 1280){
+            //console.log("Width < 1280px");
+            $scope.isNavCollapsed = !$scope.isNavCollapsed;
+            return $scope.isNavCollapsed;
+        }
+    }
 }]);

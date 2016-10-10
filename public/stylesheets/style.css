@@ -45,7 +45,7 @@ h1,p,h2,h3,h4,h5,h6{
     text-align: justify;
 }
 .panel-default{
-    background: transparent;
+    background: transparent !important;
     text-align: center !important;
 }
 .panel-default p{
@@ -63,7 +63,7 @@ h1,p,h2,h3,h4,h5,h6{
 .show-hand{
      cursor: pointer; cursor: hand;
 }
-.contact-right-panel{
+.contact-right-panel,.contact-left-panel,.contact-background{
     background-color: rgb(211,211,211);
 }
 .data a{
@@ -120,15 +120,19 @@ h1,p,h2,h3,h4,h5,h6{
     bottom: 0;
     height: 30px;
     width: 100%;
-    background-color: darkslategray;
+    background-color: darkgray;
     position: absolute; 
-    overflow: auto;
+    overflow:auto;
+    display: table; 
 }
 .footer p{
+    vertical-align: middle;
+    display: table-cell;   
     text-align: center;
     color: azure;
     font-size: 10px;
-    margin-top: 0;
+    margin: 0;
+    padding: 0;
 }
 .footer p a{
     color: azure;

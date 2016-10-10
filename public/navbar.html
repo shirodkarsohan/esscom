@@ -1,7 +1,7 @@
-<nav class="navbar navbar-default navbar-fixed-top">
+<nav class="navbar navbar-default navbar-fixed-top" ng-controller="NavbarController">
     <div class="container-fluid">
         <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false"> 
+            <button type="button" class="navbar-toggle" ng-click="isNavCollapsed = !isNavCollapsed"> 
                 <span class="sr-only">Toggle navigation</span> 
                 <span class="icon-bar"></span> 
                 <span class="icon-bar"></span> 
@@ -11,42 +11,41 @@
                 <img src="images/inside_logo.gif" class="img-responsive logo"/>
             </a> 
         </div>
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        
+        <div class="collapse navbar-collapse" uib-collapse="isNavCollapsed">
             <ul class="nav navbar-nav nav-list" style="padding-left:10%">
-                <li class="dropdown">
-                    <a  class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                        Essentials 
-                        <span class="caret"></span>
-                        
-                        <ul class="dropdown-menu">
-                            <li><a ui-sref="essential.home">Advertising/ Marketing</a></li>
-                            <li><a ui-sref="essential.about">About Us</a></li>
-                            <li><a ui-sref="essential.work">Work Process</a></li>
-                            <li><a ui-sref="essential.services">Services</a></li>
-                        </ul>
-                    </a>
+                <li class="dropdown" uib-dropdown>
+                    <a role="button" class="dropdown-toggle" uib-dropdown-toggle>
+                        Essentials
+                        <b class="caret"></b>
+                    </a>    
+                    <ul class="dropdown-menu" uib-dropdown-menu role="menu">
+                        <li><a ui-sref="essential.home" ng-click="resolveCollapse()">Advertising/ Marketing</a></li>
+                        <li><a ui-sref="essential.about" ng-click="resolveCollapse()">About Us</a></li>
+                        <li><a ui-sref="essential.work" ng-click="resolveCollapse()">Work Process</a></li>
+                        <li><a ui-sref="essential.services" ng-click="resolveCollapse()">Services</a></li>
+                    </ul>
+                    
                 </li>
                 
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                <li class="dropdown" uib-dropdown>
+                    <a role="button" class="dropdown-toggle" uib-dropdown-toggle>
                         Commercials 
                         <span class="caret"></span>
-                        
-                        <ul class="dropdown-menu">
-                            <li><a ui-sref="commercial.home">Fund Raising</a></li>
-                            <li><a ui-sref="commercial.about">About Us</a></li>
-                            <li><a ui-sref="commercial.work">Fund Raising Process</a></li>
-                        </ul>
                     </a>
+                    <ul class="dropdown-menu" uib-dropdown-menu role="menu">
+                        <li><a ui-sref="commercial.home" ng-click="resolveCollapse()">Fund Raising</a></li>
+                        <li><a ui-sref="commercial.about" ng-click="resolveCollapse()">About Us</a></li>
+                        <li><a ui-sref="commercial.fund" ng-click="resolveCollapse()">Fund Raising Process</a></li>
+                    </ul>
                 </li>
-                <li><a ui-sref="contact">Contact Us</a></li>
-                <li><a href="#">Downloads</a></li>
+                <li><a ui-sref="contact" ng-click="resolveCollapse()">Contact Us</a></li>
+                <li><a href="#" ng-click="resolveCollapse()">Downloads</a></li>
             </ul>
         </div>
-        <!-- /.navbar-collapse -->
+        
     </div>
-    <!-- /.container-fluid -->
+
 </nav>
 
 <script>
