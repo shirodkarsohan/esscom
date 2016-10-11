@@ -1,14 +1,15 @@
 <nav class="navbar navbar-default navbar-fixed-top" ng-controller="NavbarController">
     <div class="container-fluid">
         <div class="navbar-header">
-            <button type="button" class="navbar-toggle" ng-click="isNavCollapsed = !isNavCollapsed"> 
+            <button style="border:none" type="button" class="navbar-toggle" ng-click="isNavCollapsed = !isNavCollapsed"> 
                 <span class="sr-only">Toggle navigation</span> 
                 <span class="icon-bar"></span> 
                 <span class="icon-bar"></span> 
                 <span class="icon-bar"></span> 
             </button> 
-            <a class="navbar-left" ui-sref="home">
-                <img src="images/inside_logo.gif" class="img-responsive logo"/>
+            <a class="navbar-brand" ui-sref="home">
+                <strong style="color:rgb(230,33,41)">Ess</strong><strong style="color:rgb(0,162,233)">Com</strong>
+                {{isNavCollapsed}}
             </a> 
         </div>
         
@@ -20,7 +21,7 @@
                         <b class="caret"></b>
                     </a>    
                     <ul class="dropdown-menu" uib-dropdown-menu role="menu">
-                        <li><a ui-sref="essential.home" ng-click="resolveCollapse()">Advertising/ Marketing</a></li>
+                        <li><a ui-sref="essential.home" ng-click="resolveCollapse()">Advertising & Marketing</a></li>
                         <li><a ui-sref="essential.about" ng-click="resolveCollapse()">About Us</a></li>
                         <li><a ui-sref="essential.work" ng-click="resolveCollapse()">Work Process</a></li>
                         <li><a ui-sref="essential.services" ng-click="resolveCollapse()">Services</a></li>
@@ -40,23 +41,10 @@
                     </ul>
                 </li>
                 <li><a ui-sref="contact" ng-click="resolveCollapse()">Contact Us</a></li>
-                <li><a href="#" ng-click="resolveCollapse()">Downloads</a></li>
+                <li><a ng-click="resolveCollapse()">Downloads</a></li>
             </ul>
         </div>
         
     </div>
 
 </nav>
-
-<script>
-    (function ($) {
-        $(document).ready(function () {
-            $('ul.dropdown-menu [data-toggle=dropdown]').on('click', function (event) {
-                event.preventDefault();
-                event.stopPropagation();
-                $(this).parent().siblings().removeClass('open');
-                $(this).parent().toggleClass('open');
-            });
-        });
-    })(jQuery);
-</script>

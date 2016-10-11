@@ -320,16 +320,10 @@ esscom.controller('HomeController',['$rootScope','$window',function($rootScope,$
     });
 }]);
 
-esscom.controller('EssentialController',['$window','$scope','$state','rightPanelImage','$anchorScroll','$location',function($window,$scope,$state,rightPanelImage,$anchorScroll,$location){
+esscom.controller('EssentialController',['$window','$scope','$state','rightPanelImage',function($window,$scope,$state,rightPanelImage){
     
     //console.log("In esential controller");
-    
-    $location.hash('view');
-
-      // call $anchorScroll()
-    $anchorScroll();
-    
-    
+    $window.scrollTo(0,0);
     $scope.resolveBackColor = function(){
         //console.log("Resolving back color");
         if( $window.innerWidth <= 1280){
@@ -376,65 +370,67 @@ esscom.controller('CommercialController',['$window','$scope','rightPanelImage',f
     
 }]);
 
-esscom.controller('EssHomeController',['leftPanelImage','$scope',function(leftPanelImage,$scope){
+esscom.controller('EssHomeController',['leftPanelImage','$scope','$window',function(leftPanelImage,$scope,$window){
     //console.log("EssHomeController");    
+    $window.scrollTo(0, 0);
+    
+    
     $scope.leftPanelImage = leftPanelImage+".gif";
     console.log($scope.leftPanelImage+" loaded");
     
 }]);
-esscom.controller('EssAboutController',['leftPanelImage','$scope',function(leftPanelImage,$scope){
+esscom.controller('EssAboutController',['leftPanelImage','$scope','$window',function(leftPanelImage,$scope,$window){
     ///console.log("EssAboutController");
-    /*console.log("Scroll");
-    $window.scrollTo(0, 500);*/
+    console.log("Scroll");
+    $window.scrollTo(0, 0);
     
     $scope.leftPanelImage = leftPanelImage+".gif";
     console.log($scope.leftPanelImage+" loaded");
 }]);
-esscom.controller('EssServicesController',['leftPanelImage','$scope',function(leftPanelImage,$scope){
+esscom.controller('EssServicesController',['leftPanelImage','$scope','$window',function(leftPanelImage,$scope,$window){
     //console.log("EssServicesController");
-    /*console.log("Scroll");
-    $window.scrollTo(0, 500);
-    */
+    
+    $window.scrollTo(0,0);
+    
     $scope.leftPanelImage = leftPanelImage+".gif";
     console.log($scope.leftPanelImage+" loaded");
 }]);
-esscom.controller('EssWorkController',['leftPanelImage','$scope',function(leftPanelImage,$scope){
+esscom.controller('EssWorkController',['leftPanelImage','$scope','$window',function(leftPanelImage,$scope,$window){
     //console.log("EssWorkController");
-    /*console.log("Scroll");
-    $window.scrollTo(0, 500);*/
+  
+    $window.scrollTo(0,0);
     
     $scope.leftPanelImage = leftPanelImage+".gif";
     console.log($scope.leftPanelImage+" loaded");
 }]);
 
-esscom.controller('ComHomeController',['leftPanelImage','$scope',function(leftPanelImage,$scope){
+esscom.controller('ComHomeController',['leftPanelImage','$scope','$window',function(leftPanelImage,$scope,$window){
     //console.log("ComHomeController");
-    /*console.log("Scroll");
-    $window.scrollTo(0, 500);*/
+    $window.scrollTo(0,0);
     $scope.leftPanelImage = leftPanelImage+".gif";
     console.log($scope.leftPanelImage+" loaded");
     
 }]);
-esscom.controller('ComAboutController',['leftPanelImage','$scope',function(leftPanelImage,$scope){
+esscom.controller('ComAboutController',['leftPanelImage','$scope','$window',function(leftPanelImage,$scope,$window){
     ///console.log("AboutController");
-    /*console.log("Scroll");
-    $window.scrollTo(0, 500);*/
+
+    $window.scrollTo(0,0);
     
     $scope.leftPanelImage = leftPanelImage+".gif";
     console.log($scope.leftPanelImage+" loaded");
 }]);
-esscom.controller('ComFundController',['leftPanelImage','$scope',function(leftPanelImage,$scope){
+esscom.controller('ComFundController',['leftPanelImage','$scope','$window',function(leftPanelImage,$scope,$window){
     //console.log("ServicesController");
-    /*console.log("Scroll");
-    $window.scrollTo(0, 500);*/
+  
+    $window.scrollTo(0,0);
     $scope.leftPanelImage = leftPanelImage+".gif";
     console.log($scope.leftPanelImage+" loaded");
 }]);
 
 esscom.controller('ContactController',['leftPanelImage','$scope','$window',function(leftPanelImage,$scope,$window){
     ///console.log("EssAboutController");
-    /*console.log("Scroll");
-    $window.scrollTo(0, 500);*/
+ 
+    $window.scrollTo(0,0);
     
     $scope.leftPanelImage = leftPanelImage+".gif";
     console.log($scope.leftPanelImage+" loaded");
@@ -453,9 +449,14 @@ esscom.controller('ContactController',['leftPanelImage','$scope','$window',funct
 esscom.controller('NavbarController', ['$scope','$window',function($scope,$window){
     $scope.isNavCollapsed = true;
     $scope.resolveCollapse = function(){
-        if( $window.innerWidth <= 1280){
+        if( $window.innerWidth <= 768){
             //console.log("Width < 1280px");
             $scope.isNavCollapsed = !$scope.isNavCollapsed;
+            return $scope.isNavCollapsed;
+        }
+        else{
+            console.log("Returning true");
+            $scope.isNavCollapsed = true;
             return $scope.isNavCollapsed;
         }
     }

@@ -5,9 +5,28 @@ body {
     padding-top: 51px;
     min-height: 100%;
 }
-.logo{
-    height: 50px;
+/*.navbar,.navbar-header{
+    height: 30px;
+    min-height: inherit;
 }
+
+.navbar .container-fluid{
+    height: 30px;
+    min-height: inherit;
+}
+.navbar-nav > li > a {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+.navbar-brand {
+    padding:5px 0 0 0;
+}
+.navbar-toggle{
+    padding: 0;
+}
+.navbar-collapse{
+    background-color: whitesmoke;
+}*/
 .cube-img{
     width: 100%;
     height: 100%;
