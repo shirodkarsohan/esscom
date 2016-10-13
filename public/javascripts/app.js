@@ -6,7 +6,8 @@ esscom.config(['$stateProvider', '$urlRouterProvider',function($stateProvider, $
     $stateProvider
     .state('home',{
         url:'/',
-        templateUrl:'wall.html'
+        templateUrl:'wall.html',
+        controller:'HomeController'
     })
     .state('commercial',{
         url:'/commercial',
@@ -302,7 +303,7 @@ esscom.controller('QueryController',function($scope,$mdDialog,$mdToast,QueryServ
 
 esscom.controller('HomeController',['$rootScope','$window',function($rootScope,$window){
     $rootScope.showPageLoad = false;
-    
+    $window.scrollTo(0,0);
     $rootScope.showSpinner = function(){
         $rootScope.showPageLoad = true;
     }
