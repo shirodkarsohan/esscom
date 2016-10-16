@@ -89,8 +89,8 @@ h1,p,h2,h3,h4,h5,h6{
     color:black;
 }
 .form{
-    border: solid;
-    border-color: gainsboro;
+    /*border: solid;
+    border-color: gainsboro;*/
 }
 #toaster {
   position: fixed;
@@ -163,4 +163,8 @@ h1,p,h2,h3,h4,h5,h6{
     position:absolute;
     width:100%;
     background-color:white
+}
+.submit{
+    margin-left:35px;
+    width:100px;
 }

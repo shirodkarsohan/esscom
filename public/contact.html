@@ -20,8 +20,8 @@
                 <p>
                     We're always happy to make new friends or to hear from smart, funny people. So go ahead, reach out and contact us.... we dare you.
                 </p>
-                <div class="form" layout-padding>
-                    <form layout-align="center" layout="column" ng-controller="QueryController" name="contact_form">
+                <div layout-padding>
+                    <form layout-align="center" ng-controller="QueryController" name="contact_form">
                         <md-input-container class="md-icon-float md-block">
                             <label>Name</label>
                             <md-icon class="md-icon-button">
@@ -91,7 +91,7 @@
 
                         <md-progress-linear ng-disabled="progressDisable" md-mode="indeterminate"></md-progress-linear>
 
-                        <md-button class="md-raised md-primary" ng-disabled="contact_form.$invalid" ng-click="showConfirm($event)">Submit</md-button>
+                        <md-button class="md-raised md-primary submit" ng-disabled="contact_form.$invalid" ng-click="showConfirm($event)">Submit</md-button>
 
                         <div id="toaster"></div>
                     </form>            
