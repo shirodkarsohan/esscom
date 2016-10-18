@@ -43,7 +43,11 @@
                     </ul>
                 </li>
                 <li><a ui-sref="contact" ng-click="resolveCollapse()">Contact Us</a></li>
-                <li><a ng-click="resolveCollapse()">Downloads</a></li>
+                <li>
+                    <a ng-hide="disableDownload" ng-href="/downloads/{{profile}}" ng-click="resolveCollapse()" download>
+                        Download {{profileName}} Profile
+                    </a>
+                </li>
             </ul>
         </div>
         

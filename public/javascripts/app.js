@@ -101,9 +101,10 @@ esscom.config(['$stateProvider', '$urlRouterProvider',function($stateProvider, $
         },
         controller:'ComFundController'
     })
-    .state('downloads',{
-        url:'/downloads'   
-    })
+    /*.state('downloads',{
+        url:'/downloads'   ,
+        templateUrl:'downloads.html'
+    })*/
     .state('contact',{
         url:'/contact',
         templateUrl:'contact.html',
@@ -174,7 +175,9 @@ esscom.directive('fileInput',['$parse',function($parse){
         }
     }
 }]);
+
 esscom.service('QueryService',['$http',function($http){
+    
     this.sendQuery = function(data,fd,cb){ 
         //console.log("In service....");
         //console.log(data);
@@ -317,7 +320,19 @@ esscom.controller('HomeController',['$rootScope','$window',function($rootScope,$
     $rootScope.$on('$stateChangeStart', function(event, toState, toParams, fromState, fromParams) {
         //console.log("State change start");
         $rootScope.showSpinner();
-        
+        $rootScope.disableDownload = false;
+        console.log(toState.name.substr(0,toState.name.indexOf(".")));
+        if( toState.name.substr(0,toState.name.indexOf(".")) == "essential"){
+            $rootScope.profile = "Essential_Profile_2016.pdf";
+            $rootScope.profileName = "Essential";
+        }
+        else if( toState.name.substr(0,toState.name.indexOf(".")) == "commercial"){
+            $rootScope.profile = "Commercial_Profile_2016.pdf"; 
+            $rootScope.profileName = "Commercial";
+        }
+        else
+            $rootScope.disableDownload = true;
+        console.log("After state change start:"+$rootScope.disableDownload);
     });
 }]);
 
@@ -353,13 +368,21 @@ esscom.controller('EssentialController',['$window','$scope','$state','rightPanel
     
 }]);
 esscom.controller('CommercialController',['$window','$scope','rightPanelImage',function($window,$scope,rightPanelImage){
+    /*$scope.download = function(file){
+        console.log("Trying to download "+file);
+        $http.get('/download?file='+file).success(function(response){
+            console.log("Download "+response);
+            
+        });
+    };*/
+    
     $scope.resolveBackColor = function(){
         //console.log("Resolving back color");
         if( $window.innerWidth <= 1280){
             //console.log("Width < 1280px");
             return 'combackground';
         }
-    }
+    };
     
     $scope.rightPanelImage = rightPanelImage+".gif";
     //console.log($scope.rightPanelImage);
@@ -371,70 +394,56 @@ esscom.controller('CommercialController',['$window','$scope','rightPanelImage',f
     
 }]);
 
-esscom.controller('EssHomeController',['leftPanelImage','$scope','$window',function(leftPanelImage,$scope,$window){
-    //console.log("EssHomeController");    
+esscom.controller('EssHomeController',['leftPanelImage','$scope','$window',function(leftPanelImage,$scope,$window){  
     $window.scrollTo(0, 0);
     
-    
     $scope.leftPanelImage = leftPanelImage+".gif";
-    console.log($scope.leftPanelImage+" loaded");
+    //console.log($scope.leftPanelImage+" loaded");
     
 }]);
 esscom.controller('EssAboutController',['leftPanelImage','$scope','$window',function(leftPanelImage,$scope,$window){
-    ///console.log("EssAboutController");
-    console.log("Scroll");
+    //console.log("Scroll");
     $window.scrollTo(0, 0);
     
     $scope.leftPanelImage = leftPanelImage+".gif";
-    console.log($scope.leftPanelImage+" loaded");
+    //console.log($scope.leftPanelImage+" loaded");
 }]);
 esscom.controller('EssServicesController',['leftPanelImage','$scope','$window',function(leftPanelImage,$scope,$window){
-    //console.log("EssServicesController");
-    
     $window.scrollTo(0,0);
     
     $scope.leftPanelImage = leftPanelImage+".gif";
-    console.log($scope.leftPanelImage+" loaded");
+    //console.log($scope.leftPanelImage+" loaded");
 }]);
 esscom.controller('EssWorkController',['leftPanelImage','$scope','$window',function(leftPanelImage,$scope,$window){
-    //console.log("EssWorkController");
-  
     $window.scrollTo(0,0);
     
     $scope.leftPanelImage = leftPanelImage+".gif";
-    console.log($scope.leftPanelImage+" loaded");
+    //console.log($scope.leftPanelImage+" loaded");
 }]);
 
 esscom.controller('ComHomeController',['leftPanelImage','$scope','$window',function(leftPanelImage,$scope,$window){
-    //console.log("ComHomeController");
     $window.scrollTo(0,0);
     $scope.leftPanelImage = leftPanelImage+".gif";
-    console.log($scope.leftPanelImage+" loaded");
+    //console.log($scope.leftPanelImage+" loaded");
     
 }]);
 esscom.controller('ComAboutController',['leftPanelImage','$scope','$window',function(leftPanelImage,$scope,$window){
-    ///console.log("AboutController");
-
     $window.scrollTo(0,0);
     
     $scope.leftPanelImage = leftPanelImage+".gif";
-    console.log($scope.leftPanelImage+" loaded");
+    //console.log($scope.leftPanelImage+" loaded");
 }]);
 esscom.controller('ComFundController',['leftPanelImage','$scope','$window',function(leftPanelImage,$scope,$window){
-    //console.log("ServicesController");
-  
     $window.scrollTo(0,0);
     $scope.leftPanelImage = leftPanelImage+".gif";
-    console.log($scope.leftPanelImage+" loaded");
+    //console.log($scope.leftPanelImage+" loaded");
 }]);
 
 esscom.controller('ContactController',['leftPanelImage','$scope','$window',function(leftPanelImage,$scope,$window){
-    ///console.log("EssAboutController");
- 
     $window.scrollTo(0,0);
     
     $scope.leftPanelImage = leftPanelImage+".gif";
-    console.log($scope.leftPanelImage+" loaded");
+   // console.log($scope.leftPanelImage+" loaded");
     
     $scope.resolveBackColor = function(){
         //console.log("Resolving back color");
@@ -443,12 +452,22 @@ esscom.controller('ContactController',['leftPanelImage','$scope','$window',funct
             return 'contact-background';
         }
     }
-    
-    
 }]);
 
-esscom.controller('NavbarController', ['$scope','$window',function($scope,$window){
+esscom.controller('NavbarController', ['$scope','$window','$rootScope',function($scope,$window,$rootScope){
     $scope.isNavCollapsed = true;
+    /*$rootScope.$on('$stateChangeStart',function(event, toState, toParams, fromState, fromParams){ 
+        console.log(toState);
+        console.log(".....State change start....");
+        if( toState.name.substr(0,toState.name.indexOf(".")) == "essential")
+            $scope.profile = "Essential_Profile_2016.pdf";
+        else if( toState.name.substr(0,toState.name.indexOf(".")) == "commercial")
+            $scope.profile = "Commercial_Profile_2016.pdf"; 
+        else
+            $scope.disableDownload = true;
+        
+        console.log("After state change start:"+$scope.disableDownload);
+    });*/
     $scope.resolveCollapse = function(){
         if( $window.innerWidth <= 768){
             //console.log("Width < 1280px");

@@ -24,6 +24,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname,'./')));
+//app.use(express.static(path.join(__dirname,'downloads')));
 
 app.use('/', routes);
 app.use('/users', users);
@@ -44,6 +45,18 @@ var transporter = nodemailer.createTransport(smtpTransport({
 }));
 var file;
 
+/* app.get('/download',function(req,res){
+	console.log("Download request for "+req.query.file);
+
+	res.download('downloads/'+req.query.file,function(err){
+		if( err ){
+			console.log("Download failed");
+		} 
+		else{
+			console.log("No error while downloading");
+		}
+	});
+}); */
 app.post('/upload',upload.single('file'),function(req,res){
 	console.log("Uploading file.. in /post");
 	console.log(req.file);
