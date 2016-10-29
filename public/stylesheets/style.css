@@ -4,6 +4,10 @@ html{
 body {
     padding-top: 51px;
     min-height: 100%;
+    -webkit-user-select: none;
+    -moz-user-select: -moz-none;
+    -ms-user-select: none;
+    user-select: none;
 }
 /*.navbar,.navbar-header{
     height: 30px;
