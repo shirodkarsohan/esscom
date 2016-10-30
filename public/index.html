@@ -25,6 +25,27 @@
         <md-progress-circular md-mode="indeterminate"></md-progress-circular>
     </div>
     <div ui-view class="content"></div>
+    <div class="social-media">
+        <md-fab-speed-dial md-direction="down" class="md-scale">
+            <md-fab-trigger>
+              <md-button aria-label="menu" class="md-fab md-accent">
+                <md-icon><i class="material-icons">menu</i></md-icon>
+              </md-button>
+            </md-fab-trigger>
+
+            <md-fab-actions>
+              <md-button ng-href="https://www.facebook.com" aria-label="Facebook" class="md-fab md-raised md-mini">
+                <md-icon md-svg-src="images/logos/svg/facebook.svg"></md-icon>
+              </md-button>
+              <md-button ng-href="https://www.instagram.com" aria-label="Instagram" class="md-fab md-raised md-mini">
+                <md-icon md-svg-src="images/logos/svg/instagram.svg"></md-icon>
+              </md-button>
+              <md-button ng-href="https://www.linkedin.com" aria-label="Linkedin" class="md-fab md-raised md-mini">
+                <md-icon md-svg-src="images/logos/svg/linkedin.svg"></md-icon>
+              </md-button>
+            </md-fab-actions>
+        </md-fab-speed-dial>
+    </div>
         <!--<div ng-include="'footer.html'"></div>-->
     
     <script type="text/javascript" src="../bower_components/jquery/dist/jquery.min.js"></script>
