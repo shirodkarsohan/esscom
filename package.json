@@ -1,6 +1,7 @@
 {
   "name": "esscom",
   "version": "0.0.0",
+  "main": "app.js",
   "private": true,
   "engines" : {
 	"node": "4.3.1",
