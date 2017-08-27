@@ -48,6 +48,7 @@ h1,p,h2,h3,h4,h5,h6{
 .panel-default{
     background: transparent !important;
     text-align: center !important;
+    height: 50% !important;
 }
 .panel-default p{
     text-align: justify !important;
@@ -160,4 +161,7 @@ h1,p,h2,h3,h4,h5,h6{
     position: fixed;
     top:150px;
     right: 0;
+}
+.accordion-heading{
+    height : 5px !important;
 }
