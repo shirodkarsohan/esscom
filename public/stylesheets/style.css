@@ -8,29 +8,7 @@ body {
     -moz-user-select: -moz-none;
     -ms-user-select: none;
     user-select: none;
-}
-/*.navbar,.navbar-header{
-    height: 30px;
-    min-height: inherit;
-}
-
-.navbar .container-fluid{
-    height: 30px;
-    min-height: inherit;
-}
-.navbar-nav > li > a {
-    padding-top: 5px;
-    padding-bottom: 5px;
-}
-.navbar-brand {
-    padding:5px 0 0 0;
-}
-.navbar-toggle{
-    padding: 0;
-}
-.navbar-collapse{
-    background-color: whitesmoke;
-}*/
+} 
 .cube-img{
     width: 100%;
     height: 100%;
@@ -166,7 +144,8 @@ h1,p,h2,h3,h4,h5,h6{
 .wall{
     position:absolute;
     width:100%;
-    background-color:white
+    background-color:white;
+    height:100vh;
 }
 .submit{
     margin-left:35px;
