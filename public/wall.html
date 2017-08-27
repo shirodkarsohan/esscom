@@ -3,16 +3,110 @@
         <!-- place cubes image here-->
         <img src="images/homepage-cube.gif" class="img-responsive"/>
     </div>
-    <div style="position:absolute;left:18%;top:45%;text-align:center" flex="50">
+    <div style="position:absolute;left:18%;top:35%;text-align:justify" flex="25">
         <!-- place text here -->
-        <h4>
+        <h5>
             <strong>
-                THE GOOD BUSINESS ONLY SUCCEED WITH RIGHT BALANCE OF MONEY AND MARKETING!
+                THE GOOD BUSINESS ONLY SUCCEED WITH RIGHT BALANCE OF <a ui-sref="commercial.home" style="color:blue">MONEY</a> AND <a ui-sref="essential.home" style="color:red">MARKETING!</a>
             </strong>
-        </h4>
+        </h5>
         <p>
             To succeed in business today, you need to be flexible and have good planning and organizational skills. Many people start a business thinking that they'll turn on their computers or open their doors and start making money, only to find that making money in a business is much more difficult than they thought. You can avoid this in your business ventures by taking your time and planning out appropriate use of your Money and Marketing strategy to achieve success.
         </p>
+        <div ng-controller="AccordionController" layout="column" layout-align="center center">
+            <uib-accordion close-others="oneAtATime">
+                <div uib-accordion-group class="panel-default" layout="column" layout-align="center center">
+                    <uib-accordion-heading>
+                        <div ng-click="toggle(0)" >
+                            <strong>Get Organized</strong>
+                        </div>
+                    </uib-accordion-heading>
+                    <p>
+                        To be successful in business you need to be organized with your money. A good way to do this is to minimize unwanted expenses like office stationery, afternoon pizza or utility bills. This will ensure that you're saving a lot on your money on day to day basis that are essential to the survival of your business.
+                    </p>
+                </div>
+                <div uib-accordion-group class="panel-default" layout="column" layout-align="center center">
+                    <uib-accordion-heading>
+                        <div ng-click="toggle(1)">
+                            <strong>Keep Detailed Records</strong>
+                        </div>
+                    </uib-accordion-heading>
+                    <p>
+                        All successful businesses keep detailed records of business. By keeping detailed records, you'll know where the business stands financially and what potential challenges you could be facing. Just knowing this gives you time to create your marketing strategies to overcome those challenges.
+                    </p>
+                </div>
+                <div uib-accordion-group class="panel-default" layout="column" layout-align="center center">
+                    <uib-accordion-heading>
+                        <div ng-click="toggle(2)">
+                            <strong>Analyze Your Competition</strong>
+                        </div>
+                    </uib-accordion-heading>
+                    <p>
+                        Competition breeds the best results. To be successful, you can't be afraid to study and learn from your competitors. After all, they may be doing something right that you can implement in your investment or marketing strategy to make more money.
+                    </p>
+                </div>
+                <div uib-accordion-group class="panel-default" layout="column" layout-align="center center">
+                    <uib-accordion-heading>
+                        <div ng-click="toggle(3)">
+                            <strong>Understand the Risks and Rewards</strong>
+                        </div>
+                    </uib-accordion-heading>
+                    <p>
+                        The key to being successful is taking calculated risks with your funds to help your business grow. If you are open to know what the worst-case scenario is, only will allow you to take the kinds of calculated risks that can generate tremendous rewards.
+                    </p>
+                </div>
+                <div uib-accordion-group class="panel-default" layout="column" layout-align="center center">
+                    <uib-accordion-heading>
+                        <div ng-click="toggle(4)">
+                            <strong>Be Creative</strong>
+                        </div>
+                    </uib-accordion-heading>
+                    <p>
+                        Always be looking for ways to improve your business and to make it stand out from the competition. Recognize that you don't know everything and be open to new creative ideas and new marketing approaches to your business.
+                    </p>
+                </div>
+                <div uib-accordion-group class="panel-default" layout="column" layout-align="center center">
+                    <uib-accordion-heading>
+                        <div ng-click="toggle(5)">
+                            <strong>Stay Focused</strong>
+                        </div>
+                    </uib-accordion-heading>
+                    <p>
+                        Just because you open a business doesn't mean that you're going to immediately start making money. It takes time to let people know who you are, so stay focused on achieving your short-term goals.
+                    </p>
+                </div>
+                <div uib-accordion-group class="panel-default" layout="column" layout-align="center center">
+                    <uib-accordion-heading>
+                        <div ng-click="toggle(6)">
+                            <strong>Prepare to Make Sacrifices</strong>
+                        </div>
+                    </uib-accordion-heading>
+                    <p>
+                        The lead-up to starting a business is hard work, but after you open your doors, your work has just begun. In many cases, you have to put in more time than you would if you were working for someone else. In turn, you have to make sacrifices in personal life, in order to be successful.
+                    </p>
+                </div>
+                <div uib-accordion-group class="panel-default" layout="column" layout-align="center center">
+                    <uib-accordion-heading>
+                        <div ng-click="toggle(7)">
+                            <strong>Provide Great Service</strong>
+                        </div>
+                    </uib-accordion-heading>
+                    <p>
+                        There are many successful businesses that forget that providing great customer service is important. If you provide better service for your customers, they'll be more inclined to come to you the next time they need something instead of going to your competition.
+                    </p>
+                </div>
+                <div uib-accordion-group class="panel-default" layout="column" layout-align="center center">
+                    <uib-accordion-heading>
+                        <div ng-click="toggle(8)">
+                            <strong>Be Consistent</strong>
+                        </div>
+                    </uib-accordion-heading>
+                    <p>
+                        Consistency is a key component to making money in business. You have to consistently keep doing the things necessary to be successful day in and day out. This will create long-term positive habits that will help you to save and make more money over the long term.
+                    </p>
+                </div>
+            </uib-accordion>
+        </div>
     </div>
     <div layout="column" layout-align="space-between end" flex="50">
         <!-- place stones image here -->
