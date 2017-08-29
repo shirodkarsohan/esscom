@@ -4,6 +4,7 @@ html{
 body {
     padding-top: 51px;
     min-height: 100%;
+    font-size: 12px;
     -webkit-user-select: none;
     -moz-user-select: -moz-none;
     -ms-user-select: none;
@@ -52,6 +53,12 @@ h1,p,h2,h3,h4,h5,h6{
 }
 .panel-default p{
     text-align: justify !important;
+}
+.panel-heading{
+    padding: 0;
+}
+.panel-title{
+    font-size : 12px;
 }
 .transparent-panel{
     background: transparent !important;
@@ -147,6 +154,7 @@ h1,p,h2,h3,h4,h5,h6{
     width:100%;
     background-color:white;
     height:100vh;
+    font-size: 12px;
 }
 .submit{
     margin-left:35px;
@@ -161,7 +169,4 @@ h1,p,h2,h3,h4,h5,h6{
     position: fixed;
     top:150px;
     right: 0;
-}
-.accordion-heading{
-    height : 5px !important;
 }
