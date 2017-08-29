@@ -171,3 +171,16 @@ h1,p,h2,h3,h4,h5,h6{
     top:170px;
     right: 0;
 }
+#home-data{
+    position:absolute;
+    left:15%;
+    top:43%;
+    text-align:justify;
+}
+#home-heading-line{
+    font-family:times new roman;
+    text-align:center;
+}
+#home-footer{
+    position: fixed;
+}
