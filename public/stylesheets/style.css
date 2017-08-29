@@ -1,5 +1,6 @@
 html{
     height: 100%;
+    background-color: white;
 }
 body {
     padding-top: 51px;
@@ -130,7 +131,7 @@ h1,p,h2,h3,h4,h5,h6{
     height: 30px;
     width: 100%;
     background-color: darkgray;
-    position: fixed; 
+    position: absolute; 
     overflow:auto;
     display: table; 
 }
@@ -150,10 +151,10 @@ h1,p,h2,h3,h4,h5,h6{
     min-height: 100%;
 }
 .wall{
-    position:absolute;
+    display: block;
+    overflow: auto;
     width:100%;
     background-color:white;
-    height:100vh;
     font-size: 12px;
 }
 .submit{
