@@ -481,3 +481,8 @@ esscom.controller('NavbarController', ['$scope','$window','$rootScope',function(
         }
     }
 }]);
+
+esscom.controller('FooterController',['$scope',function($scope){
+	$scope.date = new Date();
+	$scope.date = $scope.date.getFullYear();
+}]);
