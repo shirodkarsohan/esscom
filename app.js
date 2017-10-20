@@ -77,15 +77,15 @@ app.post('/send', function (req, res) {
     console.log(req.body);
     if (file == null) {
         var mailOptions = {
-            from: 'sohan@esscom.co.in',
-            to: 'sohan@esscom.co.in',
+            from: 'sameep@esscom.co.in',
+            to: 'sameep@esscom.co.in',
             subject: 'EssCom Query',
             text: "Name: " + req.body.name + "\nContact: " + req.body.phone + "\nEmail: " + req.body.email + "\nBusiness: " + req.body.business + "\n\n\n\nQuery:\n\n" + req.body.query
         }
     } else {
         var mailOptions = {
-            from: 'sohan@esscom.co.in',
-            to: 'sohan@esscom.co.in',
+            from: 'sameep@esscom.co.in',
+            to: 'sameep@esscom.co.in',
             subject: 'EssCom Query',
             text: "Name: " + req.body.name + "\nContact: " + req.body.phone + "\nEmail: " + req.body.email + "\nBusiness: " + req.body.business + "\n\n\n\nQuery:\n\n" + req.body.query,
             attachments: [
