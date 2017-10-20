@@ -39,8 +39,8 @@ var transporter = nodemailer.createTransport({
     host: 'mail.supremecluster.com',
     secure: false,
     auth: {
-        user: 'sohan@esscom.co.in',
-        pass: 'newuser@123',
+        user: 'sameep@esscom.co.in',
+        pass: 'omnamahshivay123',
         type: 'login'
     }
 });

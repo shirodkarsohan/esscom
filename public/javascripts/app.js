@@ -281,7 +281,7 @@ esscom.controller('QueryController',function($scope,$mdToast,$mdDialog,$state,Qu
             $mdToast.simple()
             .textContent(text)
             .parent(document.querySelectorAll('#toaster'))
-            .position('bottom left')
+            .position('top right')
             .hideDelay(3000)
         );
     }
@@ -294,10 +294,12 @@ esscom.controller('QueryController',function($scope,$mdToast,$mdDialog,$state,Qu
             if(response.data == "success"){
                 alert('Query sent');
                 //showSimpleToast('Query Sent!');
+                //setTimeout(showSimpleToast('Query Sent!'),3000);
             }
             else{
                 alert('Query not sent');
                 //showSimpleToast('Error Sending Query');
+                //setTimeout(showSimpleToast('Error Sending Query!'),3000);
             }
         });
 
