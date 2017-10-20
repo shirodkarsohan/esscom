@@ -34,15 +34,24 @@ var upload = multer({
     Here we are configuring our SMTP Server details.
     STMP is mail server which is responsible for sending and recieving email.
 */
-var transporter = nodemailer.createTransport(smtpTransport({
-    host: "smtp.gmail.com"
-    , secureConnection: false
-    , port: 587
-    , auth: {
-        user: "sohan.gec@gmail.com"
-        , pass: "gmail21051995."
+var transporter = nodemailer.createTransport({
+    port: 2525,
+    host: 'mail.supremecluster.com',
+    secure: false,
+    auth: {
+        user: 'sohan@esscom.co.in',
+        pass: 'newuser@123',
+        type: 'login'
     }
-}));
+});
+transporter.verify(function(error, success){
+    if( error ){
+        console.log(error);
+    }
+    else{
+        console.log('Server is ready to take our messages');
+    }
+});
 var file;
 /* app.get('/download',function(req,res){
 	console.log("Download request for "+req.query.file);
@@ -68,36 +77,35 @@ app.post('/send', function (req, res) {
     console.log(req.body);
     if (file == null) {
         var mailOptions = {
-            from: 'sohan.gec@gmail.com'
-            , to: 'sohan.gec@gmail.com'
-            , subject: 'EssCom Query'
-            , text: "Name: " + req.body.name + "\nContact: " + req.body.phone + "\nEmail: " + req.body.email + "\nBusiness: " + req.body.business + "\n\n\n\nQuery:\n\n" + req.body.query
+            from: 'sohan@esscom.co.in',
+            to: 'sohan@esscom.co.in',
+            subject: 'EssCom Query',
+            text: "Name: " + req.body.name + "\nContact: " + req.body.phone + "\nEmail: " + req.body.email + "\nBusiness: " + req.body.business + "\n\n\n\nQuery:\n\n" + req.body.query
         }
-    }
-    else {
+    } else {
         var mailOptions = {
-            from: 'sohan.gec@gmail.com'
-            , to: 'sohan.gec@gmail.com'
-            , subject: 'EssCom Query'
-            , text: "Name: " + req.body.name + "\nContact: " + req.body.phone + "\nEmail: " + req.body.email + "\nBusiness: " + req.body.business + "\n\n\n\nQuery:\n\n" + req.body.query
-            , attachments: [
+            from: 'sohan@esscom.co.in',
+            to: 'sohan@esscom.co.in',
+            subject: 'EssCom Query',
+            text: "Name: " + req.body.name + "\nContact: " + req.body.phone + "\nEmail: " + req.body.email + "\nBusiness: " + req.body.business + "\n\n\n\nQuery:\n\n" + req.body.query,
+            attachments: [
                 { // utf-8 string as an attachment
-                    filename: file.originalname
-                    , path: file.path
-                    , contentType: file.mimetype
+                    filename: file.originalname,
+                    path: file.path,
+                    contentType: file.mimetype
 			}]
         }
     }
     console.log(mailOptions);
-    transporter.sendMail(mailOptions, function (error, response) {
+    transporter.sendMail(mailOptions, function(error, info){
         if (error) {
             console.log(error);
-            res.send("error");
+        } else {
+            console.log('Email sent: ' + info.response);
+            res.send('success');
         }
-        else {
-            file = null;
-            res.send("sent");
-        }
+        req = null;
+        file = null;
     });
 });
 // catch 404 and forward to error handler
@@ -113,8 +121,8 @@ if (app.get('env') === 'development') {
     app.use(function (err, req, res, next) {
         res.status(err.status || 500);
         res.render('error', {
-            message: err.message
-            , error: err
+            message: err.message,
+            error: err
         });
     });
 }
@@ -123,12 +131,12 @@ if (app.get('env') === 'development') {
 app.use(function (err, req, res, next) {
     res.status(err.status || 500);
     res.render('error', {
-        message: err.message
-        , error: {}
+        message: err.message,
+        error: {}
     });
 });
 app.listen(3000, function () {
     console.log('Express Server listening on port 3000!');
-    
+
 });
 module.exports = app;

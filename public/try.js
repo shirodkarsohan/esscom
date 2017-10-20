@@ -290,17 +290,44 @@ esscom.controller('QueryController',function($scope,$mdToast,$mdDialog,$state,Qu
     // Appending dialog to document.body to cover sidenav in docs app
         sendQuery(function(response){
             console.log(response);
-            $state.reload();
             if(response.data == "success"){
-                alert('Query sent');
-                //showSimpleToast('Query Sent!');
+                //alert('Query sent');
+                $state.go('home');
+                showSimpleToast('Query sent successfully!');
+                /*$scope.progressDisable = true;
+                showSimpleToast("Query Sent");*/
             }
             else{
-                alert('Query not sent');
-                //showSimpleToast('Error Sending Query');
+                //alert('Query not sent');
+                $state.go('home');
+                showSimpleToast('Error sending query!');
+                /*$scope.progressDisable = true;
+                showSimpleToast("Error");*/
             }
         });
+        /*var confirm = $mdDialog.confirm()
+              .title('Send query to EssCom?')
+              .ariaLabel('Query confirmation')
+              .targetEvent(ev)
+              .ok('Please do it!')
+              .cancel('Go Back');
 
+        $mdDialog.show(confirm).then(function() {
+            $scope.progressDisable = false;
+            sendQuery(function(response){
+                if(response == "success"){
+                    $scope.progressDisable = true;
+                    showSimpleToast("Query Sent");
+                }
+                else{
+                    $scope.progressDisable = true;
+                    showSimpleToast("Error");
+                }
+            });
+            
+        }, function() {
+            
+        });*/
     };
     
 });
