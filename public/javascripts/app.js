@@ -292,14 +292,10 @@ esscom.controller('QueryController',function($scope,$mdToast,$mdDialog,$state,Qu
             console.log(response);
             $state.reload();
             if(response.data == "success"){
-                alert('Query sent');
-                //showSimpleToast('Query Sent!');
-                //setTimeout(showSimpleToast('Query Sent!'),3000);
+                alert('Thank you for your query. We will get back to you soon!');
             }
             else{
                 alert('Query not sent');
-                //showSimpleToast('Error Sending Query');
-                //setTimeout(showSimpleToast('Error Sending Query!'),3000);
             }
         });
 
@@ -317,14 +313,11 @@ esscom.controller('HomeController',['$rootScope','$window',function($rootScope,$
         $rootScope.showPageLoad = false;
     }
     $rootScope.$on('$viewContentLoaded', function(){
-        //console.log("View content loaded");
         $rootScope.hideSpinner();
     });
     $rootScope.$on('$stateChangeStart', function(event, toState, toParams, fromState, fromParams) {
-        //console.log("State change start");
         $rootScope.showSpinner();
         $rootScope.disableDownload = false;
-        console.log(toState.name.substr(0,toState.name.indexOf(".")));
         if( toState.name.substr(0,toState.name.indexOf(".")) == "essential"){
             $rootScope.profile = "Essential_Profile_2016.pdf";
             $rootScope.profileName = "Essential";
@@ -335,36 +328,27 @@ esscom.controller('HomeController',['$rootScope','$window',function($rootScope,$
         }
         else
             $rootScope.disableDownload = true;
-        console.log("After state change start:"+$rootScope.disableDownload);
     });
 }]);
 
 esscom.controller('EssentialController',['$window','$scope','$state','rightPanelImage',function($window,$scope,$state,rightPanelImage){
     
-    //console.log("In esential controller");
     $window.scrollTo(0,0);
     $scope.resolveBackColor = function(){
-        //console.log("Resolving back color");
         if( $window.innerWidth <= 1280){
-            //console.log("Width < 1280px");
             return 'essbackground';
         }
     }
     $scope.rightPanelImage = rightPanelImage+".gif";
-    //console.log($scope.rightPanelImage);
     $scope.$on('$stateChangeSuccess',function(event, toState, toParams, fromState, fromParams) {
-        //console.log("State change success");
         $scope.leftPanelImage = toState.name+".gif";
-        //console.log($scope.leftPanelImage);
     });
     $scope.addPadding = function(){
         
         if( $window.innerWidth > 1280){
-            console.log("padding added");
             return {"padding-top":"50px"};
         }
         else{
-            console.log("padding removed");
             return {"padding-top":"0px"};
         }
     }
@@ -380,19 +364,14 @@ esscom.controller('CommercialController',['$window','$scope','rightPanelImage',f
     };*/
     
     $scope.resolveBackColor = function(){
-        //console.log("Resolving back color");
         if( $window.innerWidth <= 1280){
-            //console.log("Width < 1280px");
             return 'combackground';
         }
     };
     
     $scope.rightPanelImage = rightPanelImage+".gif";
-    //console.log($scope.rightPanelImage);
     $scope.$on('$stateChangeSuccess',function(event, toState, toParams, fromState, fromParams) {
-        //console.log("State change success");
         $scope.leftPanelImage = toState.name+".gif";
-        //console.log($scope.leftPanelImage);
     });
     
 }]);
@@ -401,57 +380,46 @@ esscom.controller('EssHomeController',['leftPanelImage','$scope','$window',funct
     $window.scrollTo(0, 0);
     
     $scope.leftPanelImage = leftPanelImage+".gif";
-    //console.log($scope.leftPanelImage+" loaded");
     
 }]);
 esscom.controller('EssAboutController',['leftPanelImage','$scope','$window',function(leftPanelImage,$scope,$window){
-    //console.log("Scroll");
     $window.scrollTo(0, 0);
     
     $scope.leftPanelImage = leftPanelImage+".gif";
-    //console.log($scope.leftPanelImage+" loaded");
 }]);
 esscom.controller('EssServicesController',['leftPanelImage','$scope','$window',function(leftPanelImage,$scope,$window){
     $window.scrollTo(0,0);
     
     $scope.leftPanelImage = leftPanelImage+".gif";
-    //console.log($scope.leftPanelImage+" loaded");
 }]);
 esscom.controller('EssWorkController',['leftPanelImage','$scope','$window',function(leftPanelImage,$scope,$window){
     $window.scrollTo(0,0);
     
     $scope.leftPanelImage = leftPanelImage+".gif";
-    //console.log($scope.leftPanelImage+" loaded");
 }]);
 
 esscom.controller('ComHomeController',['leftPanelImage','$scope','$window',function(leftPanelImage,$scope,$window){
     $window.scrollTo(0,0);
     $scope.leftPanelImage = leftPanelImage+".gif";
-    //console.log($scope.leftPanelImage+" loaded");
     
 }]);
 esscom.controller('ComAboutController',['leftPanelImage','$scope','$window',function(leftPanelImage,$scope,$window){
     $window.scrollTo(0,0);
     
     $scope.leftPanelImage = leftPanelImage+".gif";
-    //console.log($scope.leftPanelImage+" loaded");
 }]);
 esscom.controller('ComFundController',['leftPanelImage','$scope','$window',function(leftPanelImage,$scope,$window){
     $window.scrollTo(0,0);
     $scope.leftPanelImage = leftPanelImage+".gif";
-    //console.log($scope.leftPanelImage+" loaded");
 }]);
 
 esscom.controller('ContactController',['leftPanelImage','$scope','$window',function(leftPanelImage,$scope,$window){
     $window.scrollTo(0,0);
     
     $scope.leftPanelImage = leftPanelImage+".gif";
-   // console.log($scope.leftPanelImage+" loaded");
     
     $scope.resolveBackColor = function(){
-        //console.log("Resolving back color");
         if( $window.innerWidth <= 1280){
-            //console.log("Width < 1280px");
             return 'contact-background';
         }
     }
@@ -473,12 +441,10 @@ esscom.controller('NavbarController', ['$scope','$window','$rootScope',function(
     });*/
     $scope.resolveCollapse = function(){
         if( $window.innerWidth <= 768){
-            //console.log("Width < 1280px");
             $scope.isNavCollapsed = !$scope.isNavCollapsed;
             return $scope.isNavCollapsed;
         }
         else{
-            console.log("Returning true");
             $scope.isNavCollapsed = true;
             return $scope.isNavCollapsed;
         }
